@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "antd": "^3.1.6",
+    "axios": "^0.17.1",
     "react": "^16.2.0",
     "react-app-rewire-less": "^2.1.0",
     "react-app-rewired": "^1.4.1",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.0"
+    "react-scripts": "1.1.0",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0"
   },
   "scripts": {
     "start": "react-app-rewired start",
