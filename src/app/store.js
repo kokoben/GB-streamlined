@@ -3,7 +3,7 @@ import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 import createHistory from 'history/createBrowserHistory';
-import rootReducer from './reducers';
+import rootReducer from './root-reducer';
 
 export const history = createHistory();
 

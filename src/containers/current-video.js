@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { Row } from 'antd';
 
-class Deck extends Component {
+class CurrentVideo extends Component {
   render () {
     return (
       <div>
@@ -13,4 +13,4 @@ class Deck extends Component {
   }
 }
 
-export default Deck;
+export default CurrentVideo;

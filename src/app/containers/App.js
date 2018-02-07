@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../style/App.css';
 import { Route, Link } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import Home from './containers/home';
-import Quicklooks from './containers/quicklooks';
-import Podcasts from './containers/podcasts';
-import Features from './containers/features';
+import Home from '../../home/containers/home';
+import Quicklooks from '../../quicklooks/containers/quicklooks';
+import Podcasts from '../../podcasts/containers/podcasts';
+import Features from '../../features/containers/features';
 const { Header, Footer, Sider, Content } = Layout;
 
 const App = () => {

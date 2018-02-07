@@ -11,7 +11,8 @@
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "xml2js": "^0.4.19"
   },
   "scripts": {
     "start": "react-app-rewired start",
