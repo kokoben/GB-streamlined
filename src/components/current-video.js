@@ -6,7 +6,7 @@ class CurrentVideo extends Component {
     return (
       <div>
         <Row type="flex" justify="center">
-          Deck
+          Current video
         </Row>
       </div>
     )
