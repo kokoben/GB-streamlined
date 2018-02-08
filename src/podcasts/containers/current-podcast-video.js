@@ -3,9 +3,11 @@ import CurrentVideo from '../../components/current-video';
 import { connect } from 'react-redux';
 
 class CurrentPodcastVideo extends Component {
-  return (
-    <CurrentVideo />
-  )
+  render() {
+    return (
+      <CurrentVideo />
+    )
+  }
 }
 
-export default connect()(CurrentHomeVideo);
+export default connect()(CurrentPodcastVideo);

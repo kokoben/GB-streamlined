@@ -7,7 +7,6 @@ export default () => (
   <div>
     <CurrentQuicklookVideo />
     <QuicklookVideos />
-    <Pagination defaultCurrent={1} total={50} />
   </div>
 )
 
