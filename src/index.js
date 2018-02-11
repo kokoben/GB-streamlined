@@ -1,11 +1,11 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { ConnectedRouter } from 'react-router-redux'
-import store, { history } from './app/store'
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
+import store, { history } from './app/store';
 import App from './app/containers/App';
 
-import './index.css'
+import './index.css';
 
 const target = document.querySelector('#root')
 

@@ -1,9 +1,6 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import { Route, Link } from 'react-router-dom';
-import Quicklooks from '../../quicklooks/containers/quicklooks';
-import Podcasts from '../../podcasts/containers/podcasts';
-import Features from '../../features/containers/features';
+import { Link } from 'react-router-dom';
 
 // get current location to set default selected menu key
 let href = window.location.href.split('/');
@@ -12,7 +9,7 @@ console.log(href);
 
 const Header = () => (
     <Layout.Header>
-      <div classname="logo" />
+      <div className="logo" />
       <Menu 
             theme="dark" 
             mode="horizontal"

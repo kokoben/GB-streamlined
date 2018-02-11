@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../style/App.css';
-import { Route, Link } from 'react-router-dom';
-import { Layout, Breadcrumb } from 'antd';
+import { Layout } from 'antd';
 import Home from '../../home/containers/home';
 import Header from '../components/header';
 import Content from '../components/content';
