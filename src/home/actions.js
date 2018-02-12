@@ -1,10 +1,10 @@
-const VIDEO_SET = 'VIDEO_SET';
-export const VIDEO_SET_SUCCESS = 'VIDEO_SET_SUCCEEDED';
-export const VIDEO_SET_FAIL = 'VIDEO_SET_FAILED';
+const HOME_VIDEO_SET = 'HOME_VIDEO_SET';
+export const HOME_VIDEO_SET_SUCCESS = 'HOME_VIDEO_SET_SUCCEEDED';
+export const HOME_VIDEO_SET_FAIL = 'HOME_VIDEO_SET_FAILED';
 
-export const setVideo = () => {
-  console.log('inside setVideo');
+export const setHomeVideo = () => {
+  console.log('inside setHomeVideo');
   return {
-    type: VIDEO_SET,
+    type: HOME_VIDEO_SET,
   }
 }

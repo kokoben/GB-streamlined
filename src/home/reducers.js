@@ -1,13 +1,16 @@
-import { VIDEO_SET_SUCCESS, VIDEO_SET_FAIL } from './actions';
+import { 
+  HOME_VIDEO_SET_SUCCESS, 
+  HOME_VIDEO_SET_FAIL 
+} from './actions';
 
-export const latestVideo = (state=null, action) => {
+export const homeVideo = (state=null, action) => {
   switch(action.type) {
-    case VIDEO_SET_SUCCESS:
-      console.log('video_set_success!');
+    case HOME_VIDEO_SET_SUCCESS:
+      console.log('home_video_set_success!');
       let videoLink = action.response.results[0];
       return videoLink;
-    case VIDEO_SET_FAIL:
-      console.log('video_set_fail!');
+    case HOME_VIDEO_SET_FAIL:
+      console.log('home_video_set_fail!');
       console.log(action.message);
     default:
       return state;

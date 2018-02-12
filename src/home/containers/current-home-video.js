@@ -2,40 +2,39 @@ import React, { Component } from 'react';
 import CurrentVideo from '../../components/current-video';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setVideo } from '../actions';
+import { setHomeVideo } from '../actions';
 import { apiKey } from '../../api-keys';
 
 class CurrentHomeVideo extends Component {
   componentDidMount() {
-    this.props.setVideo();
-    console.log(this.props.latestVideo);
+    this.props.setHomeVideo();
   }
 
   render() {
-    if (this.props.latestVideo == null) return null;
+    if (this.props.homeVideo == null) return null;
 
     return (
         <CurrentVideo 
-          name={this.props.latestVideo.name}
-          poster={this.props.latestVideo.image.screen_large_url}
-          user={this.props.latestVideo.user}
-          pub_date={this.props.latestVideo.publish_date}
-          description={this.props.latestVideo.deck}
-          source={this.props.latestVideo.hd_url + '?api_key=' + apiKey }
+          name={this.props.homeVideo.name}
+          poster={this.props.homeVideo.image.screen_large_url}
+          user={this.props.homeVideo.user}
+          pub_date={this.props.homeVideo.publish_date}
+          description={this.props.homeVideo.deck}
+          source={this.props.homeVideo.hd_url + '?api_key=' + apiKey }
           />
     )
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    latestVideo: state.latestVideo
+    homeVideo: state.homeVideo
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    setVideo: setVideo
+    setHomeVideo: setHomeVideo
   }, dispatch);
 }
 

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { latestVideo } from '../home/reducers';
+import { homeVideo } from '../home/reducers';
+import { featureVideo } from '../features/reducers';
 
 export default combineReducers({
   routing: routerReducer,
-  latestVideo
+  homeVideo,
+  featureVideo,
 })
