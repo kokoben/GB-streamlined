@@ -9,8 +9,9 @@ class CurrentFeatureVideo extends Component {
   componentDidMount() {
     this.props.setFeatureVideo();
   }
+
   render() {
-    if (this.props.featureVideo == null) return null;
+    if (this.props.featureVideo === null) return null;
     return (
       <CurrentVideo
         name={this.props.featureVideo.name} 

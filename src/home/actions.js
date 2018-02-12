@@ -5,6 +5,6 @@ export const HOME_VIDEO_SET_FAIL = 'HOME_VIDEO_SET_FAILED';
 export const setHomeVideo = () => {
   console.log('inside setHomeVideo');
   return {
-    type: HOME_VIDEO_SET,
+    type: HOME_VIDEO_SET
   }
 }

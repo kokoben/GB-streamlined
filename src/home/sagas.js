@@ -7,7 +7,7 @@ const jsonpWrapper = args => {
 }
 
 // workers
-export function* setHomeVideoAsync() {
+function* setHomeVideoAsync() {
   try {
     let jsonpArgs = [
       "https://www.giantbomb.com/api/videos/" +
@@ -21,9 +21,8 @@ export function* setHomeVideoAsync() {
 
     const response = yield call(jsonpWrapper, jsonpArgs);
     yield put({type: 'HOME_VIDEO_SET_SUCCEEDED', response: response });
-  } catch(e) {
+  } catch (e) {
     console.log('setVideoAsync request failed!');
-    console.log(e);
     yield put({type: 'HOME_VIDEO_SET_FAILED', message: e.message });
   }
 }

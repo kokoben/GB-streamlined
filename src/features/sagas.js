@@ -7,7 +7,7 @@ const jsonpWrapper = args => {
 }
 
 // workers
-export function* setFeatureVideoAsync() {
+function* setFeatureVideoAsync() {
   try {
     let jsonpArgs = [
       "https://www.giantbomb.com/api/videos/" +

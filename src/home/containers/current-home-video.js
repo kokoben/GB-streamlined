@@ -11,7 +11,7 @@ class CurrentHomeVideo extends Component {
   }
 
   render() {
-    if (this.props.homeVideo == null) return null;
+    if (this.props.homeVideo === null) return null;
 
     return (
         <CurrentVideo 
