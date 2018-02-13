@@ -15,11 +15,10 @@ class CurrentFeatureVideo extends Component {
     return (
       <CurrentVideo
         name={this.props.featureVideo.name} 
-        poster={this.props.featureVideo.image.screen_large_url}
         user={this.props.featureVideo.user}
+        embed_player={this.props.featureVideo.embed_player}
         pub_date={this.props.featureVideo.publish_date}
-        description={this.props.featureVideo.deck}
-        source={this.props.featureVideo.hd_url + '?api_key=' + apiKey}
+        deck={this.props.featureVideo.deck}
       />
     )
   }

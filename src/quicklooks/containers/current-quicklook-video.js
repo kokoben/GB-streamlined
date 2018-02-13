@@ -15,11 +15,10 @@ class CurrentQuicklookVideo extends Component {
     return (
       <CurrentVideo  
         name={this.props.quicklookVideo.name}
-        poster={this.props.quicklookVideo.image.screen_large_url}
         user={this.props.quicklookVideo.user}
+        embed_player={this.props.quicklookVideo.embed_player}
         pub_date={this.props.quicklookVideo.user}
-        description={this.props.quicklookVideo.deck}
-        source={this.props.quicklookVideo.hd_url + '?api_key=' + apiKey}
+        deck={this.props.quicklookVideo.deck}
       />
     )
   }

@@ -14,14 +14,13 @@ class CurrentHomeVideo extends Component {
     if (this.props.homeVideo === null) return null;
 
     return (
-        <CurrentVideo 
-          name={this.props.homeVideo.name}
-          poster={this.props.homeVideo.image.screen_large_url}
-          user={this.props.homeVideo.user}
-          pub_date={this.props.homeVideo.publish_date}
-          description={this.props.homeVideo.deck}
-          source={this.props.homeVideo.hd_url + '?api_key=' + apiKey }
-          />
+      <CurrentVideo 
+        name={this.props.homeVideo.name}
+        user={this.props.homeVideo.user}
+        embed_player={this.props.homeVideo.embed_player}
+        pub_date={this.props.homeVideo.publish_date}
+        deck={this.props.homeVideo.deck}
+        />
     )
   }
 }

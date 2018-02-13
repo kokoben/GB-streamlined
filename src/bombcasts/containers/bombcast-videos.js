@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Videos from '../../components/videos';
 import { connect } from 'react-redux';
 
-class PodcastVideos extends Component {
+class BombcastVideos extends Component {
   render () {
     return (
       <Videos />
@@ -10,4 +10,4 @@ class PodcastVideos extends Component {
   }
 }
 
-export default connect()(PodcastVideos);
+export default connect()(BombcastVideos);

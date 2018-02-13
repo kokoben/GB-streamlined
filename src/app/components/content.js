@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, Breadcrumb } from 'antd';
 import Home from '../../home/containers/home';
 import Quicklooks from '../../quicklooks/containers/quicklooks';
-import Podcasts from '../../podcasts/containers/podcasts';
+import Bombcasts from '../../bombcasts/containers/bombcasts';
 import Features from '../../features/containers/features';
 import { Route } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const Content = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/quicklooks" component={Quicklooks} />
         <Route exact path="/features" component={Features} />
-        <Route exact path="/podcasts" component={Podcasts} />
+        <Route exact path="/bombcasts" component={Bombcasts} />
       </main>
   </Layout.Content>
 
