@@ -10,6 +10,12 @@
   text-align: center;
 }
 
+.ant-layout-header, .ant-layout-content {
+  width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

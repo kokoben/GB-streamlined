@@ -9,8 +9,8 @@ import Footer from '../components/footer';
 const App = () => {
   return (
     <div>
-      <Layout className="layout">
-        <Header className />
+      <Layout className = "layout">
+        <Header />
         <Content />
         <Footer />
       </Layout>

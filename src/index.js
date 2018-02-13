@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import store, { history } from './app/store';
-import App from './app/containers/App';
+import App from './app/components/App';
 
 import './index.css';
 
