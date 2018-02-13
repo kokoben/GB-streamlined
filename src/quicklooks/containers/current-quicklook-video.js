@@ -32,7 +32,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    setQuicklookVideo: setQuicklookVideo
+    setQuicklookVideo
   }, dispatch);
 }
 
