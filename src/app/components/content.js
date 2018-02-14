@@ -7,7 +7,7 @@ import Features from '../../features/containers/features';
 import { Route } from 'react-router-dom';
 
 const Content = () => (
-  <Layout.Content style={{ padding: '0 50px'}}>
+  <Layout.Content style={{ padding: '0 50px', margin: 'auto'}}>
     <Breadcrumb style={{ margin: '16px 0' }} >
       <Breadcrumb.Item>Home</Breadcrumb.Item>
       <Breadcrumb.Item>List</Breadcrumb.Item>
@@ -20,7 +20,6 @@ const Content = () => (
         <Route exact path="/bombcasts" component={Bombcasts} />
       </main>
   </Layout.Content>
-
 )
 
 export default Content;
