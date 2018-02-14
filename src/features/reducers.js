@@ -10,8 +10,9 @@ export const featureVideo = (state=null, action) => {
       const data = action.response.results[0];
       return data;
     case FEATURE_VIDEO_SET_FAIL:
-        console.log('feature_video_set_fail!');
-        console.log(action.message);
+      console.log('feature_video_set_fail!');
+      console.log(action.message);
+      break;
     default:
       return state;
   }

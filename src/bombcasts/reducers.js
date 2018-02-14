@@ -12,6 +12,7 @@ export const bombcastVideo = (state=null, action) => {
     case BOMBCAST_VIDEO_SET_FAIL:
       console.log('bombcast_video_set_fail');
       console.log(action.message);
+      break;
     default:
       return state;
   }

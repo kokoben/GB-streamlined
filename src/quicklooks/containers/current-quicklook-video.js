@@ -3,7 +3,6 @@ import CurrentVideo from '../../components/current-video';
 import { setQuicklookVideo } from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { apiKey } from '../../api-keys';
 
 class CurrentQuicklookVideo extends Component {
   componentDidMount() {
@@ -17,7 +16,7 @@ class CurrentQuicklookVideo extends Component {
         name={this.props.quicklookVideo.name}
         user={this.props.quicklookVideo.user}
         embed_player={this.props.quicklookVideo.embed_player}
-        pub_date={this.props.quicklookVideo.user}
+        pub_date={this.props.quicklookVideo.publish_date}
         deck={this.props.quicklookVideo.deck}
       />
     )

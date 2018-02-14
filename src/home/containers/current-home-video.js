@@ -3,7 +3,6 @@ import CurrentVideo from '../../components/current-video';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setHomeVideo } from '../actions';
-import { apiKey } from '../../api-keys';
 
 class CurrentHomeVideo extends Component {
   componentDidMount() {

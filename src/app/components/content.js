@@ -13,7 +13,7 @@ const Content = () => (
       <Breadcrumb.Item>List</Breadcrumb.Item>
       <Breadcrumb.Item>App</Breadcrumb.Item>
     </Breadcrumb>
-      <main style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+      <main>
         <Route exact path="/" component={Home} />
         <Route exact path="/quicklooks" component={Quicklooks} />
         <Route exact path="/features" component={Features} />

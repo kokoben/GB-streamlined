@@ -12,6 +12,7 @@ export const quicklookVideo = (state=null, action) => {
     case QUICKLOOK_VIDEO_SET_FAIL:
       console.log('quicklook_video_set_fail!');
       console.log(action.message);
+      break;
     default:
       return state;
   }

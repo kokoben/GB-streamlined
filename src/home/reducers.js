@@ -12,6 +12,7 @@ export const homeVideo = (state=null, action) => {
     case HOME_VIDEO_SET_FAIL:
       console.log('home_video_set_fail!');
       console.log(action.message);
+      break;
     default:
       return state;
   }

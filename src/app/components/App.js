@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import '../style/App.css';
+import React from 'react';
 import { Layout } from 'antd';
-import Home from '../../home/containers/home';
 import Header from '../components/header';
 import Content from '../components/content';
 import Footer from '../components/footer';
+import { Button } from 'antd';
 
 const App = () => {
   return (

@@ -5,6 +5,7 @@ import {
   FEATURE_VIDEO_SET_SUCCESS,
   FEATURE_VIDEO_SET_FAIL
 } from './actions';
+import { callFeatureVideo } from './api-calls';
 
 const jsonpWrapper = args => {
   const response = jsonp(...args);
@@ -14,15 +15,7 @@ const jsonpWrapper = args => {
 // workers
 function* setFeatureVideoAsync() {
   try {
-    const jsonpArgs = [
-      "https://www.giantbomb.com/api/videos/" +
-      "?api_key=816627d452ffb34d20762fd2f3b575dfe906bfd9" +
-      "&format=jsonp&json_callback=callback&limit=1&field_list=name," +
-      "deck,embed_player,image,publish_date,user&filter=video_type:8" +
-      "&sort=publish_date:desc",
-      {param: 'json_callback'}
-    ]; 
-
+    const jsonpArgs = [callFeatureVideo, {param: 'json_callback'}];
     const response = yield call(jsonpWrapper, jsonpArgs);
     yield put({type: FEATURE_VIDEO_SET_SUCCESS, response: response});
   } catch (e) {

@@ -5,6 +5,7 @@ import {
   QUICKLOOK_VIDEO_SET_SUCCESS,
   QUICKLOOK_VIDEO_SET_FAIL
 } from './actions';
+import { callQuicklookVideo } from './api-calls';
 
 const jsonpWrapper = args => {
   const response = jsonp(...args);
@@ -14,15 +15,7 @@ const jsonpWrapper = args => {
 // workers
 function* setQuicklookVideoAsync() {
   try {
-    const jsonpArgs = [
-        "https://www.giantbomb.com/api/videos/" +
-        "?api_key=816627d452ffb34d20762fd2f3b575dfe906bfd9" +
-        "&format=jsonp&json_callback=callback" +
-        "&limit=1&field_list=name,deck,embed_player,publish_date,image," +
-        "user&filter=video_type:3&sort=publish_date:desc",
-        {param: 'json_callback'}
-    ];
-
+    const jsonpArgs = [ callQuicklookVideo, {param: 'json_callback'}];
     const response = yield call(jsonpWrapper, jsonpArgs);
     yield put({type: QUICKLOOK_VIDEO_SET_SUCCESS, response: response});
   } catch (e) {
