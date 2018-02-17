@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CurrentVideo from '../../components/current-video';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setLatestHomeVideo, setHomeVideo } from '../actions';
+import { setLatestHomeVideo } from '../actions';
 
 class CurrentHomeVideo extends Component {
   componentDidMount() {
@@ -24,19 +24,16 @@ class CurrentHomeVideo extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    homeVideo: state.homeVideo,
-    latestHomeVideoId: state.latestHomeVideoId
-  }
-}
+const mapStateToProps = state => ({
+  homeVideo: state.homeVideo,
+  latestHomeVideoId: state.latestHomeVideoId
+})
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
     setLatestHomeVideo,
-    setHomeVideo
-  }, dispatch);
-}
+  }, dispatch)
+)
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentHomeVideo);
 

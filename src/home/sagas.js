@@ -34,6 +34,16 @@ function* setHomeVideoAsync(action) {
   }
 }
 
+function* setLatestHomeVideoAsync() {
+  try {
+    const jsonpArgs = [requestHomeVideos(1), params];
+    const response = yield call(jsonpWrapper, jsonpArgs);
+    yield put ({type: HOME_VIDEO_SET_SUCCESS, response: response.results[0]});
+  } catch (e) {
+    yield put({type: HOME_VIDEO_SET_FAIL, message:e.message})
+  }
+}
+
 function* setHomeVideosAsync(action) {
   try {
     const jsonpArgs = [requestHomeVideos(action.page), params];
@@ -42,18 +52,6 @@ function* setHomeVideosAsync(action) {
   } catch (e) {
     console.log('setHomeVideosAsync request failed!');
     yield put({type: HOME_VIDEOS_SET_FAIL, message: e.message });
-  }
-}
-
-function* setLatestHomeVideoAsync() {
-  try {
-    console.log('inside getlatesthomevideoidasync');
-    const jsonpArgs = [requestHomeVideos(1), params];
-    const response = yield call(jsonpWrapper, jsonpArgs);
-    console.log('response', response);
-    yield put ({type: HOME_VIDEO_SET_SUCCESS, response: response.results[0]});
-  } catch (e) {
-    yield put({type: HOME_VIDEO_SET_FAIL, message:e.message})
   }
 }
 
@@ -68,7 +66,7 @@ export function* watchSetHomeVideos() {
   yield takeEvery(HOME_VIDEOS_SET, setHomeVideosAsync);
 }
 
-export function* watchGetLatestHomeVideoId() {
-  console.log('redux-saga is running the watchGetLatestHomeVideoId action listener');
+export function* watchSetLatestHomeVideo() {
+  console.log('redux-saga is running the LATEST_HOME_VIDEO_SET action listener');
   yield takeEvery(LATEST_HOME_VIDEO_SET, setLatestHomeVideoAsync);
 }

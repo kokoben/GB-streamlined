@@ -10,6 +10,7 @@ import {
 export const homeVideo = (state=null, action) => {
   switch(action.type) {
     case HOME_VIDEO_SET_SUCCESS:
+      console.log('home_video_set_success!');
       return action.response;
     case HOME_VIDEO_SET_FAIL:
       console.log('home_video_set_fail!');

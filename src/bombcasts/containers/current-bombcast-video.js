@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import CurrentVideo from '../../components/current-video';
-import { setBombcastVideo } from '../actions';
+import { setLatestBombcastVideo } from '../actions';
 import { connect } from 'react-redux';
 
 class CurrentBombcastVideo extends Component {
   componentDidMount() {
-    this.props.setBombcastVideo();
+    this.props.setLatestBombcastVideo();
   }
   render() {
     if (this.props.bombcastVideo === null) return null;
@@ -23,16 +23,14 @@ class CurrentBombcastVideo extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    bombcastVideo: state.bombcastVideo
-  }
-}
+const mapStateToProps = state => ({
+  bombcastVideo: state.bombcastVideo
+})
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    setBombcastVideo
-  }, dispatch);
-}
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    setLatestBombcastVideo
+  }, dispatch)
+)
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentBombcastVideo);

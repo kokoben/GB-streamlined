@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Videos from '../../components/videos';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setBombcastVideos } from '../actions';
+import { setBombcastVideo, setBombcastVideos } from '../actions';
 
 class BombcastVideos extends Component {
   componentDidMount() {
@@ -19,21 +19,20 @@ class BombcastVideos extends Component {
         num_results={this.props.bombcastVideos.number_of_total_results}
         num_page_results={this.props.bombcastVideos.number_of_page_results}
         num_rows={num_rows}
+        onCardClick={this.props.setBombcastVideo}
         onClickPageNum={this.props.setBombcastVideos}
-        page_num={this.props.bombcastVideos.offset+1}
       />
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    bombcastVideos: state.bombcastVideos
-  }
-}
+const mapStateToProps = state => ({
+  bombcastVideos: state.bombcastVideos
+})
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
+    setBombcastVideo,
     setBombcastVideos
   }, dispatch);
 }

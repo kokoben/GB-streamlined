@@ -26,11 +26,9 @@ class HomeVideos extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    homeVideos: state.homeVideos
-  }
-}
+const mapStateToProps = state => ({
+  homeVideos: state.homeVideos
+})
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({

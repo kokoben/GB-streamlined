@@ -25,8 +25,6 @@ export const setHomeVideos = (page, pageSize) => {
   }
 }
 
-export const setLatestHomeVideo = () => {
-  return {
-    type: LATEST_HOME_VIDEO_SET
-  }
-}
+export const setLatestHomeVideo = () => ({
+  type: LATEST_HOME_VIDEO_SET
+})

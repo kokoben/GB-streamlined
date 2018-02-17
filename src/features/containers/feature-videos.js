@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Videos from '../../components/videos';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setFeatureVideos } from '../actions';
+import { setFeatureVideo, setFeatureVideos } from '../actions';
 
 class FeatureVideos extends Component {
   componentDidMount() {
@@ -19,18 +19,16 @@ class FeatureVideos extends Component {
         num_results={this.props.featureVideos.number_of_total_results}        
         num_page_results={this.props.featureVideos.number_of_page_results}
         num_rows={num_rows}
+        onCardClick={this.props.setFeatureVideo}
         onClickPageNum={this.props.setFeatureVideos}
-        page_num={this.props.featureVideos.offset+1}
       />
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    featureVideos: state.featureVideos
-  }
-}
+const mapStateToProps = state => ({
+  featureVideos: state.featureVideos
+})
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({

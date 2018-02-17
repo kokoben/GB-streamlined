@@ -23,11 +23,9 @@ class CurrentQuicklookVideo extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    quicklookVideo: state.quicklookVideo
-  }
-}
+const mapStateToProps = state => ({
+  quicklookVideo: state.quicklookVideo
+})
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({

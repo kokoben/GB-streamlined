@@ -23,11 +23,9 @@ class CurrentFeatureVideo extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    featureVideo: state.featureVideo
-  }
-}
+const mapStateToProps = state => ({
+  featureVideo: state.featureVideo
+})
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
