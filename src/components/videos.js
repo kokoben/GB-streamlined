@@ -27,7 +27,7 @@ const Videos = props => {
   console.log(props.num_results);
   return (
     <div>
-      {rows.map((row, i) => <VideoRow videos={row} key={i} />)}
+      {rows.map((row, i) => <VideoRow videos={row} key={i} onCardClick={props.onCardClick} />)}
       <Pagination 
         defaultCurrent={1} 
         defaultPageSize={24}

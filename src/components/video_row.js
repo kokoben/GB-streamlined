@@ -9,6 +9,7 @@ const VideoRow = props => {
       {props.videos.map((video, i) => 
         <Col span={6} key={i}>
           <Card
+            onClick={() => props.onCardClick(video.id)}
             key={i}
             bordered={false}
             hoverable

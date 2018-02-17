@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { homeVideo, homeVideos } from '../home/reducers';
+import { homeVideo, latestHomeVideo, homeVideos } from '../home/reducers';
 import { featureVideo, featureVideos } from '../features/reducers';
 import { quicklookVideo, quicklookVideos } from '../quicklooks/reducers';
 import { bombcastVideo, bombcastVideos } from '../bombcasts/reducers';
