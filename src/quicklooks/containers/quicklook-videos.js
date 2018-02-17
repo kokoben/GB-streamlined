@@ -1,13 +1,41 @@
 import React, { Component } from 'react';
 import Videos from '../../components/videos';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setQuicklookVideos } from '../actions';
 
 class QuicklookVideos extends Component {
-  render () {
+  componentDidMount() {
+    this.props.setQuicklookVideos(1, 24);
+  }
+  
+  render() {
+    if (this.props.quicklookVideos === null) return null;
+    const num_rows = Math.ceil(this.props.quicklookVideos.number_of_page_results / 4);
+
     return (
-      <Videos />
+      <Videos
+        results={this.props.quicklookVideos.results}
+        num_results={this.props.quicklookVideos.number_of_total_results}        
+        num_page_results={this.props.quicklookVideos.number_of_page_results}
+        num_rows={num_rows}
+        onClickPageNum={this.props.setQuicklookVideos}
+        page_num={this.props.quicklookVideos.offset+1}
+      />
     )
   }
 }
 
-export default connect()(QuicklookVideos);
+const mapStateToProps = state => {
+  return {
+    quicklookVideos: state.quicklookVideos
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    setQuicklookVideos
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuicklookVideos);

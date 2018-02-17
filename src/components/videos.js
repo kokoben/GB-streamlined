@@ -1,11 +1,41 @@
 import React from 'react';
-import { Pagination } from 'antd';
+import { Row, Col, Pagination, Card } from 'antd';
+import VideoRow from './video_row';
 
-const Videos = () => (
-  <div>
-    Videos
-    <Pagination defaultCurrent={1} total={50} />
-  </div>
-)
+const Videos = props => {
+  let rows = [];
+  let num_videos_left = props.num_page_results;
+  let num_col_videos;
+  let col_index = 0;
+
+  // build each row of the video grid
+  for (let i = 0; i < props.num_rows; i++) {
+    // determine number of videos for current row
+    if (num_videos_left > 4) {
+      let row_videos = props.results.slice(col_index, col_index + 4);
+      rows.push(row_videos);
+      num_videos_left -= 4;
+      col_index += 4;
+    } else {
+      // the last row
+      let row_videos = props.results.slice(col_index, col_index + num_videos_left);
+      rows.push(row_videos);
+    }
+  }
+
+  console.log('rows array', rows);
+  console.log(props.num_results);
+  return (
+    <div>
+      {rows.map((row, i) => <VideoRow videos={row} key={i} />)}
+      <Pagination 
+        defaultCurrent={1} 
+        defaultPageSize={24}
+        total={props.num_results} 
+        onChange={props.onClickPageNum}
+      />
+    </div>
+  )
+}
 
 export default Videos;

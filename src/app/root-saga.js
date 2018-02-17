@@ -1,13 +1,17 @@
-import { watchSetHomeVideo } from '../home/sagas';
-import { watchSetFeatureVideo } from '../features/sagas';
-import { watchSetQuicklookVideo } from '../quicklooks/sagas';
-import { watchSetBombcastVideo } from '../bombcasts/sagas';
+import { watchSetHomeVideo, watchSetHomeVideos } from '../home/sagas';
+import { watchSetFeatureVideo, watchSetFeatureVideos } from '../features/sagas';
+import { watchSetQuicklookVideo, watchSetQuicklookVideos } from '../quicklooks/sagas';
+import { watchSetBombcastVideo, watchSetBombcastVideos } from '../bombcasts/sagas';
 
 export default function* rootSaga() {
   yield [
     watchSetHomeVideo(),
+    watchSetHomeVideos(),
     watchSetFeatureVideo(),
+    watchSetFeatureVideos(),
     watchSetQuicklookVideo(),
+    watchSetQuicklookVideos(),
     watchSetBombcastVideo(),
+    watchSetBombcastVideos(),
   ]
 }

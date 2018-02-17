@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 // get current location to set default selected menu key
 let href = window.location.href.split('/');
 href = href[3];
-console.log(href);
 
 const Header = () => (
     <Layout.Header>
@@ -21,7 +20,7 @@ const Header = () => (
               <Link to="/">Home</Link>
             </Menu.Item>
             <Menu.Item key="/quicklooks">
-              <Link to="/quicklooks">Quicklooks</Link>
+              <Link to="/quicklooks">Quick Looks</Link>
             </Menu.Item>
             <Menu.Item key="/features">
               <Link to="/features">Features</Link>

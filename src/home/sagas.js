@@ -3,9 +3,12 @@ import jsonp from 'jsonp-promise';
 import {
   HOME_VIDEO_SET,
   HOME_VIDEO_SET_SUCCESS,
-  HOME_VIDEO_SET_FAIL
+  HOME_VIDEO_SET_FAIL,
+  HOME_VIDEOS_SET,
+  HOME_VIDEOS_SET_SUCCESS,
+  HOME_VIDEOS_SET_FAIL
 } from './actions';
-import { callHomeVideo } from './api-calls';
+import { requestHomeVideo, requestHomeVideos } from './api-calls';
 
 const jsonpWrapper = args => {
   const response = jsonp(...args);
@@ -15,12 +18,23 @@ const jsonpWrapper = args => {
 // workers
 function* setHomeVideoAsync() {
   try {
-    const jsonpArgs = [callHomeVideo, {param: 'json_callback'}];
+    const jsonpArgs = [requestHomeVideo, {param: 'json_callback'}];
     const response = yield call(jsonpWrapper, jsonpArgs);
     yield put({type: HOME_VIDEO_SET_SUCCESS, response: response });
   } catch (e) {
-    console.log('setVideoAsync request failed!');
+    console.log('setHomeVideoAsync request failed!');
     yield put({type: HOME_VIDEO_SET_FAIL, message: e.message });
+  }
+}
+
+function* setHomeVideosAsync(action) {
+  try {
+    const jsonpArgs = [requestHomeVideos(action.page), {param: 'json_callback'}];
+    const response = yield call(jsonpWrapper, jsonpArgs);
+    yield put({type: HOME_VIDEOS_SET_SUCCESS, response: response });
+  } catch (e) {
+    console.log('setHomeVideosAsync request failed!');
+    yield put({type: HOME_VIDEOS_SET_FAIL, message: e.message });
   }
 }
 
@@ -28,5 +42,10 @@ function* setHomeVideoAsync() {
 export function* watchSetHomeVideo() {
   console.log('redux-saga is running the HOME_VIDEO_SET action listener');
   yield takeEvery(HOME_VIDEO_SET, setHomeVideoAsync);
+}
+
+export function* watchSetHomeVideos() {
+  console.log('redux-saga is running the HOME_VIDEOS_SET action listener');
+  yield takeEvery(HOME_VIDEOS_SET, setHomeVideosAsync);
 }
 
