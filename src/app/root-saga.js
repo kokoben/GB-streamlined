@@ -1,7 +1,7 @@
 import { 
   watchSetHomeVideo, 
-  watchSetHomeVideos, 
-  watchSetLatestHomeVideo 
+  watchSetLatestHomeVideo ,
+  watchSetHomeVideos
 } from '../home/sagas';
 import { 
   watchSetFeatureVideo, 
@@ -9,6 +9,7 @@ import {
 } from '../features/sagas';
 import { 
   watchSetQuicklookVideo, 
+  watchSetLatestQuicklookVideo,
   watchSetQuicklookVideos 
 } from '../quicklooks/sagas';
 import { 
@@ -25,6 +26,7 @@ export default function* rootSaga() {
     watchSetFeatureVideo(),
     watchSetFeatureVideos(),
     watchSetQuicklookVideo(),
+    watchSetLatestQuicklookVideo(),
     watchSetQuicklookVideos(),
     watchSetBombcastVideo(),
     watchSetLatestBombcastVideo(),

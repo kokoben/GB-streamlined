@@ -30,11 +30,11 @@ const mapStateToProps = state => ({
   bombcastVideos: state.bombcastVideos
 })
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
     setBombcastVideo,
     setBombcastVideos
-  }, dispatch);
-}
+  }, dispatch)
+)
 
 export default connect(mapStateToProps, mapDispatchToProps)(BombcastVideos);

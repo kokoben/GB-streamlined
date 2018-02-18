@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import CurrentVideo from '../../components/current-video';
-import { setQuicklookVideo } from '../actions';
+import { setLatestQuicklookVideo } from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 class CurrentQuicklookVideo extends Component {
   componentDidMount() {
-    this.props.setQuicklookVideo();
+    this.props.setLatestQuicklookVideo();
   }
 
   render() {
@@ -27,10 +27,10 @@ const mapStateToProps = state => ({
   quicklookVideo: state.quicklookVideo
 })
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    setQuicklookVideo
-  }, dispatch);
-}
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    setLatestQuicklookVideo
+  }, dispatch)
+)
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentQuicklookVideo);
