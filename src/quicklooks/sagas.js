@@ -12,6 +12,7 @@ import {
   LATEST_QUICKLOOK_VIDEO_SET_FAIL,
 } from './actions';
 import { requestQuicklookVideo, requestQuicklookVideos } from './api-calls';
+import { requestVideo } from '../api-calls';
 
 const jsonpWrapper = args => {
   const response = jsonp(...args);
@@ -23,7 +24,7 @@ const params = {param: 'json_callback'};
 // workers
 function* setQuicklookVideoAsync(action) {
   try {
-    const jsonpArgs = [requestQuicklookVideo(action.id), params];
+    const jsonpArgs = [requestVideo(action.id), params];
     const response = yield call(jsonpWrapper, jsonpArgs);
     yield put({type: QUICKLOOK_VIDEO_SET_SUCCESS, response: response.results});
   } catch (e) {

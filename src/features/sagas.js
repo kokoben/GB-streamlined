@@ -11,7 +11,8 @@ import {
   LATEST_FEATURE_VIDEO_SET_SUCCESS,
   LATEST_FEATURE_VIDEO_SET_FAIL
 } from './actions';
-import { requestFeatureVideo, requestFeatureVideos } from './api-calls';
+import { requestFeatureVideos } from './api-calls';
+import { requestVideo } from '../api-calls';
 
 const jsonpWrapper = args => {
   const response = jsonp(...args);
@@ -23,7 +24,7 @@ const params = {param: 'json_callback'};
 // workers
 function* setFeatureVideoAsync(action) {
   try {
-    const jsonpArgs = [requestFeatureVideo(action.id), params];
+    const jsonpArgs = [requestVideo(action.id), params];
     const response = yield call(jsonpWrapper, jsonpArgs);
     yield put({type: FEATURE_VIDEO_SET_SUCCESS, response: response.results});
   } catch (e) {

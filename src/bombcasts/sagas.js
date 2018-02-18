@@ -11,7 +11,8 @@ import {
   LATEST_BOMBCAST_VIDEO_SET_SUCCESS,
   LATEST_HOME_BOMBCAST_SET_FAIL
 } from './actions';
-import { requestBombcastVideo, requestBombcastVideos } from './api-calls';
+import { requestVideo } from '../api-calls';
+import { requestBombcastVideos } from './api-calls';
 
 const jsonpWrapper = args => {
   const response = jsonp(...args);
@@ -23,7 +24,7 @@ const params = {param: 'json_callback'};
 // workers
 function* setBombcastVideoAsync(action) {
   try {
-    const jsonpArgs = [requestBombcastVideo(action.id), params]
+    const jsonpArgs = [requestVideo(action.id), params]
     const response = yield call(jsonpWrapper, jsonpArgs);
     yield put({type: BOMBCAST_VIDEO_SET_SUCCESS, response: response.results});
   } catch (e) {

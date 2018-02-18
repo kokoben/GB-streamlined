@@ -11,7 +11,8 @@ import {
   LATEST_HOME_VIDEO_SET_SUCCESS,
   LATEST_HOME_VIDEO_SET_FAIL
 } from './actions';
-import { requestHomeVideo, requestHomeVideos } from './api-calls';
+import { requestHomeVideos } from './api-calls';
+import { requestVideo } from '../api-calls';
 
 const jsonpWrapper = args => {
   const response = jsonp(...args);
@@ -25,7 +26,7 @@ function* setHomeVideoAsync(action) {
   try {
     console.log('inside sethomevideoasync');
     console.log('id', action.id);
-    const jsonpArgs = [requestHomeVideo(action.id), params];
+    const jsonpArgs = [requestVideo(action.id), params];
     const response = yield call(jsonpWrapper, jsonpArgs);
     yield put({type: HOME_VIDEO_SET_SUCCESS, response: response.results });
   } catch (e) {

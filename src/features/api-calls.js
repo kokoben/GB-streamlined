@@ -1,16 +1,9 @@
-import { apiKey } from '../api-keys';
+import { api_key } from '../api-keys';
 
-// get latest video
-export const requestFeatureVideo = (id) => (
-  "https://www.giantbomb.com/api/video/" +
-  id + "/?api_key=" + apiKey +
-  "&format=jsonp&json_callback=callback&field_list=name," +
-  "id,deck,embed_player,publish_date,image,video_type,hd_url,user"
-)
-
+// return list of all feature videos by publish date in descending order
 export const requestFeatureVideos = page => (
   "https://www.giantbomb.com/api/videos/" +
-  "?api_key=" + apiKey +
+  "?api_key=" + api_key +
   "&format=jsonp&json_callback=callback&limit=24&offset=" +
   (page-1) * 24 +
   "&field_list=hd_url,name,id,deck,embed_player,publish_date,image,video_type," +
