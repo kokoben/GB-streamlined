@@ -36,7 +36,7 @@ function* setLatestBombcastVideoAsync() {
   try {
     const jsonpArgs = [requestBombcastVideos(1), params];
     const response = yield call(jsonpWrapper, jsonpArgs);
-    yield put ({type: BOMBCAST_VIDEO_SET_SUCCESS, response: response.results[0]});
+    yield put({type: BOMBCAST_VIDEO_SET_SUCCESS, response: response.results[0]});
   } catch (e) {
     yield put({type: BOMBCAST_VIDEO_SET_FAIL, message: e.message});
   }
@@ -59,12 +59,13 @@ export function* watchSetBombcastVideo() {
   yield takeEvery(BOMBCAST_VIDEO_SET, setBombcastVideoAsync);
 }
 
+export function* watchSetLatestBombcastVideo() {
+  console.log('redux-saga is running the LATEST_BOMBCAST_VIDEOS_SET action listener');
+  yield takeEvery(LATEST_BOMBCAST_VIDEO_SET, setLatestBombcastVideoAsync);
+}
+
 export function* watchSetBombcastVideos() {
   console.log('redux-saga is running the BOMBCAST_VIDEOS_SET action listener');
   yield takeEvery(BOMBCAST_VIDEOS_SET, setBombcastVideosAsync);
 }
 
-export function* watchSetLatestBombcastVideo() {
-  console.log('redux-saga is running the LATEST_BOMBCAST_VIDEOS_SET action listener');
-  yield takeEvery(LATEST_BOMBCAST_VIDEO_SET, setLatestBombcastVideoAsync);
-}

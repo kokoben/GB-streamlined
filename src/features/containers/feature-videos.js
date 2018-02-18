@@ -30,10 +30,11 @@ const mapStateToProps = state => ({
   featureVideos: state.featureVideos
 })
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    setFeatureVideo,
     setFeatureVideos
-  }, dispatch);
-}
+  }, dispatch)
+)
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeatureVideos);

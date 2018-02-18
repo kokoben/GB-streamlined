@@ -7,6 +7,9 @@ import {
   FEATURE_VIDEOS_SET,
   FEATURE_VIDEOS_SET_SUCCESS,
   FEATURE_VIDEOS_SET_FAIL,
+  LATEST_FEATURE_VIDEO_SET,
+  LATEST_FEATURE_VIDEO_SET_SUCCESS,
+  LATEST_FEATURE_VIDEO_SET_FAIL
 } from './actions';
 import { requestFeatureVideo, requestFeatureVideos } from './api-calls';
 
@@ -15,25 +18,33 @@ const jsonpWrapper = args => {
   return response.promise;
 }
 
-const param = {param: 'json_callback'};
+const params = {param: 'json_callback'};
 
 // workers
-function* setFeatureVideoAsync() {
+function* setFeatureVideoAsync(action) {
   try {
-    const jsonpArgs = [requestFeatureVideo, {param: 'json_callback'}];
+    const jsonpArgs = [requestFeatureVideo(action.id), params];
     const response = yield call(jsonpWrapper, jsonpArgs);
-    yield put({type: FEATURE_VIDEO_SET_SUCCESS, response: response});
+    yield put({type: FEATURE_VIDEO_SET_SUCCESS, response: response.results});
   } catch (e) {
     console.log('setFeatureVideoAsync request failed!');
-    console.log(e);
     yield put({type: FEATURE_VIDEO_SET_FAIL, message: e.message})
   }
 }
 
+function* setLatestFeatureVideoAsync() {
+  try {
+    const jsonpArgs = [requestFeatureVideos(1), params];
+    const response = yield call(jsonpWrapper, jsonpArgs);
+    yield put({type: FEATURE_VIDEO_SET_SUCCESS, response: response.results[0]});
+  } catch (e) {
+    yield put({type: FEATURE_VIDEO_SET_FAIL, message: e.message});
+  }  
+}
+
 function* setFeatureVideosAsync(action) {
   try {
-    console.log('inside setfeaturevideosasync');
-    const jsonpArgs = [requestFeatureVideos(action.page), param];
+    const jsonpArgs = [requestFeatureVideos(action.page), params];
     const response = yield call(jsonpWrapper, jsonpArgs);
     yield put({type: FEATURE_VIDEOS_SET_SUCCESS, response: response})
   } catch (e) {
@@ -46,6 +57,11 @@ function* setFeatureVideosAsync(action) {
 export function* watchSetFeatureVideo() {
   console.log('redux-saga is running the FEATURE_VIDEO_SET action listener');
   yield takeEvery(FEATURE_VIDEO_SET, setFeatureVideoAsync);
+}
+
+export function* watchSetLatestFeatureVideo() {
+  console.log('redux-saga is running the LATEST_FEATURE_VIDEO_SET action listener');
+  yield takeEvery(LATEST_FEATURE_VIDEO_SET, setLatestFeatureVideoAsync); 
 }
 
 export function* watchSetFeatureVideos() {
