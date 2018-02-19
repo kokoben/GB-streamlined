@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import configureStore, { history } from './app/store';
+import configureStore, { history } from './store';
 import Root from './root';
 
 const target = document.querySelector('#root')

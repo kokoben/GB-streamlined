@@ -2,22 +2,22 @@ import {
   watchSetHomeVideo, 
   watchSetLatestHomeVideo ,
   watchSetHomeVideos
-} from '../home/sagas';
+} from './home/sagas';
 import { 
   watchSetFeatureVideo, 
   watchSetLatestFeatureVideo,
   watchSetFeatureVideos,
-} from '../features/sagas';
+} from './features/sagas';
 import { 
   watchSetQuicklookVideo, 
   watchSetLatestQuicklookVideo,
   watchSetQuicklookVideos 
-} from '../quicklooks/sagas';
+} from './quicklooks/sagas';
 import { 
   watchSetBombcastVideo, 
   watchSetLatestBombcastVideo,
   watchSetBombcastVideos
-} from '../bombcasts/sagas';
+} from './bombcasts/sagas';
 
 export default function* rootSaga() {
   yield [
