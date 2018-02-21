@@ -1,16 +1,6 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import jsonp from 'jsonp-promise';
-import {
-  BOMBCAST_VIDEO_SET,
-  BOMBCAST_VIDEO_SET_SUCCESS,
-  BOMBCAST_VIDEO_SET_FAIL,
-  BOMBCAST_VIDEOS_SET,
-  BOMBCAST_VIDEOS_SET_SUCCESS,
-  BOMBCAST_VIDEOS_SET_FAIL,
-  LATEST_BOMBCAST_VIDEO_SET,
-  LATEST_BOMBCAST_VIDEO_SET_SUCCESS,
-  LATEST_HOME_BOMBCAST_SET_FAIL
-} from './actions';
+import * as bActions from './actions/types';
 import { requestVideo } from '../api-calls';
 import { requestBombcastVideos } from './api-calls';
 
@@ -26,10 +16,10 @@ function* setBombcastVideoAsync(action) {
   try {
     const jsonpArgs = [requestVideo(action.id), params]
     const response = yield call(jsonpWrapper, jsonpArgs);
-    yield put({type: BOMBCAST_VIDEO_SET_SUCCESS, response: response.results});
+    yield put({type: bActions.BOMBCAST_VIDEO_SET_SUCCESS, response: response.results});
   } catch (e) {
     console.log('bombcast_video_set_failed!');
-    yield put({type: BOMBCAST_VIDEO_SET_FAIL, message: e.message});
+    yield put({type: bActions.BOMBCAST_VIDEO_SET_FAIL, message: e.message});
   }
 }
 
@@ -37,9 +27,9 @@ function* setLatestBombcastVideoAsync() {
   try {
     const jsonpArgs = [requestBombcastVideos(1), params];
     const response = yield call(jsonpWrapper, jsonpArgs);
-    yield put({type: BOMBCAST_VIDEO_SET_SUCCESS, response: response.results[0]});
+    yield put({type: bActions.BOMBCAST_VIDEO_SET_SUCCESS, response: response.results[0]});
   } catch (e) {
-    yield put({type: BOMBCAST_VIDEO_SET_FAIL, message: e.message});
+    yield put({type: bActions.BOMBCAST_VIDEO_SET_FAIL, message: e.message});
   }
 }
 
@@ -47,26 +37,26 @@ function* setBombcastVideosAsync(action) {
   try {
     const jsonpArgs = [requestBombcastVideos(action.page), params];
     const response = yield call(jsonpWrapper, jsonpArgs);
-    yield put({type: BOMBCAST_VIDEOS_SET_SUCCESS, response: response});
+    yield put({type: bActions.BOMBCAST_VIDEOS_SET_SUCCESS, response: response});
   } catch (e) {
     console.log('bombcast_videos_set_failed!');
-    yield put({type: BOMBCAST_VIDEOS_SET_FAIL, message: e.message});
+    yield put({type: bActions.BOMBCAST_VIDEOS_SET_FAIL, message: e.message});
   }
 }
 
 // watchers
 export function* watchSetBombcastVideo() {
   console.log('redux-saga is running the BOMBCAST_VIDEO_SET action listener');
-  yield takeEvery(BOMBCAST_VIDEO_SET, setBombcastVideoAsync);
+  yield takeEvery(bActions.BOMBCAST_VIDEO_SET, setBombcastVideoAsync);
 }
 
 export function* watchSetLatestBombcastVideo() {
   console.log('redux-saga is running the LATEST_BOMBCAST_VIDEOS_SET action listener');
-  yield takeEvery(LATEST_BOMBCAST_VIDEO_SET, setLatestBombcastVideoAsync);
+  yield takeEvery(bActions.LATEST_BOMBCAST_VIDEO_SET, setLatestBombcastVideoAsync);
 }
 
 export function* watchSetBombcastVideos() {
   console.log('redux-saga is running the BOMBCAST_VIDEOS_SET action listener');
-  yield takeEvery(BOMBCAST_VIDEOS_SET, setBombcastVideosAsync);
+  yield takeEvery(bActions.BOMBCAST_VIDEOS_SET, setBombcastVideosAsync);
 }
 

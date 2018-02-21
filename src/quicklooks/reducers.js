@@ -1,18 +1,11 @@
-import {
-  QUICKLOOK_VIDEO_SET_SUCCESS,
-  QUICKLOOK_VIDEO_SET_FAIL,
-  QUICKLOOK_VIDEOS_SET_SUCCESS,
-  QUICKLOOK_VIDEOS_SET_FAIL,
-  LATEST_QUICKLOOK_VIDEO_SET_SUCCESS,
-  LATEST_QUICKLOOK_VIDEO_SET_FAIL
-} from './actions';
+import * as qlActions from './actions/types';
 
 export const quicklookVideo = (state=null, action) => {
   switch(action.type) {
-    case QUICKLOOK_VIDEO_SET_SUCCESS:
+    case qlActions.QUICKLOOK_VIDEO_SET_SUCCESS:
       console.log('quicklook_video_set_success!');
       return action.response;
-    case QUICKLOOK_VIDEO_SET_FAIL:
+    case qlActions.QUICKLOOK_VIDEO_SET_FAIL:
       console.log('quicklook_video_set_fail!');
       console.log(action.message);
       break;
@@ -23,11 +16,11 @@ export const quicklookVideo = (state=null, action) => {
 
 export const quicklookVideos = (state=null, action) => {
   switch(action.type) {
-    case QUICKLOOK_VIDEOS_SET_SUCCESS:
+    case qlActions.QUICKLOOK_VIDEOS_SET_SUCCESS:
       console.log('quicklook_videos_set_success!');
       const data = action.response;
       return data;
-    case QUICKLOOK_VIDEOS_SET_FAIL:
+    case qlActions.QUICKLOOK_VIDEOS_SET_FAIL:
       console.log('quicklook_videos_set-fail!');
       console.log(action.message);
       break;
