@@ -10,7 +10,11 @@ const CurrentVideo = props => (
         <p>{props.deck}</p>
       </Col>
       <Col span={16}>
-        <iframe src={props.embed_player} width="640" height="360">
+        <iframe 
+          allowFullScreen 
+          src={props.embed_player} 
+          width="640" 
+          height="360">
         </iframe>
       </Col>
     </Row>

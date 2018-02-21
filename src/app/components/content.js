@@ -1,9 +1,9 @@
 import React from 'react';
 import { Layout, Breadcrumb } from 'antd';
-import Home from '../../home/containers/home';
-import Quicklooks from '../../quicklooks/containers/quicklooks';
-import Bombcasts from '../../bombcasts/containers/bombcasts';
-import Features from '../../features/containers/features';
+import Home from '../../home/components/home';
+import Quicklooks from '../../quicklooks/components/quicklooks';
+import Bombcasts from '../../bombcasts/components/bombcasts';
+import Features from '../../features/components/features';
 import { Route } from 'react-router-dom';
 
 const Content = () => (

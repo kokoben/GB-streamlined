@@ -12,13 +12,13 @@ const Videos = props => {
   for (let i = 0; i < props.num_rows; i++) {
     // determine number of videos for current row
     if (num_videos_left > 4) {
-      let row_videos = props.results.slice(col_index, col_index + 4);
+      const row_videos = props.results.slice(col_index, col_index + 4);
       rows.push(row_videos);
       num_videos_left -= 4;
       col_index += 4;
     } else {
       // the last row
-      let row_videos = props.results.slice(col_index, col_index + num_videos_left);
+      const row_videos = props.results.slice(col_index, col_index + num_videos_left);
       rows.push(row_videos);
     }
   }
