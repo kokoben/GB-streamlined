@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import CurrentVideo from '../../components/current-video';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import CurrentVideo from '../../components/current-video';
 import { setLatestFeatureVideo } from '../actions';
 
 class CurrentFeatureVideo extends Component {
@@ -22,6 +23,11 @@ class CurrentFeatureVideo extends Component {
       />
     )
   }
+}
+
+CurrentFeatureVideo.propTypes = {
+  setLatestFeatureVideo: PropTypes.func.isRequired,
+  featureVideo: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({

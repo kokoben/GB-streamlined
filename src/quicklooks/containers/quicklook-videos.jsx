@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Videos from '../../components/videos';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
+import Videos from '../../components/videos';
 import { setQuicklookVideo, setQuicklookVideos } from '../actions';
 
 class QuicklookVideos extends Component {
@@ -24,6 +25,11 @@ class QuicklookVideos extends Component {
       />
     )
   }
+}
+
+QuicklookVideos.propTypes = {
+  setQuicklookVideos: PropTypes.func.isRequired,
+  quicklookVideos: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({

@@ -1,7 +1,7 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import jsonp from 'jsonp-promise';
 import * as qlActions from './actions/types';
-import { requestQuicklookVideo, requestQuicklookVideos } from './api-calls';
+import { requestQuicklookVideos } from './api-calls';
 import { requestVideo } from '../api-calls';
 
 const jsonpWrapper = args => {

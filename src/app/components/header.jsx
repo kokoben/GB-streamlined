@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Row, Col } from 'antd';
+import { Layout, Menu, Row } from 'antd';
 import { Link } from 'react-router-dom';
 
 // get current location to set default selected menu key

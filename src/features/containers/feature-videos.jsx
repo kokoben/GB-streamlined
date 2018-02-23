@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Videos from '../../components/videos';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import Videos from '../../components/videos';
 import { setFeatureVideo, setFeatureVideos } from '../actions';
 
 class FeatureVideos extends Component {
@@ -24,6 +25,11 @@ class FeatureVideos extends Component {
       />
     )
   }
+}
+
+FeatureVideos.propTypes = {
+  setFeatureVideos: PropTypes.func.isRequired,
+  featureVideos: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({

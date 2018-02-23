@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Card } from 'antd';
+import PropTypes from 'prop-types';
 const { Meta } = Card;
 
 const VideoRow = props => (
@@ -28,6 +29,11 @@ const VideoRow = props => (
     )}
   </Row>
 )  
+
+VideoRow.propTypes = {
+  videos: PropTypes.array.isRequired,
+  onCardClick: PropTypes.func.isRequired,
+}
 
 
 export default VideoRow;

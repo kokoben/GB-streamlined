@@ -12,10 +12,10 @@ export const bombcastVideo = (state=null, action) => {
     default:
       return state;
   }
-}
+};
 
 export const bombcastVideos = (state=null, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case bActions.BOMBCAST_VIDEOS_SET_SUCCESS:
       console.log('bombcast_videos_set_success!');
       const data = action.response;
@@ -27,4 +27,4 @@ export const bombcastVideos = (state=null, action) => {
     default:
       return state;
   }
-}
+};

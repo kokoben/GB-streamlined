@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Videos from '../../components/videos';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import Videos from '../../components/videos';
 import { setBombcastVideo, setBombcastVideos } from '../actions';
 
 class BombcastVideos extends Component {
@@ -24,6 +25,11 @@ class BombcastVideos extends Component {
       />
     )
   }
+}
+
+BombcastVideos.propTypes = {
+  bombcastVideo: PropTypes.object.isRequired,
+  bombcastVideos: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

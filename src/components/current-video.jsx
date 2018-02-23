@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd';
+import PropTypes from 'prop-types';
 
 const CurrentVideo = props => (
   <div>
@@ -12,6 +13,7 @@ const CurrentVideo = props => (
       <Col span={16}>
         <iframe 
           allowFullScreen 
+          title="Current Video"
           src={props.embed_player} 
           width="640" 
           height="360">
@@ -20,5 +22,13 @@ const CurrentVideo = props => (
     </Row>
   </div>
 )
+
+CurrentVideo.propTypes = {
+  name: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
+  pub_date: PropTypes.string.isRequired,
+  deck: PropTypes.string.isRequired,
+  embed_player: PropTypes.string.isRequired,
+}
 
 export default CurrentVideo;

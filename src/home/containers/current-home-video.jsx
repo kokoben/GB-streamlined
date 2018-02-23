@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import CurrentVideo from '../../components/current-video';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import CurrentVideo from '../../components/current-video';
 import { setLatestHomeVideo } from '../actions';
 
 class CurrentHomeVideo extends Component {
@@ -24,9 +25,13 @@ class CurrentHomeVideo extends Component {
   }
 }
 
+CurrentHomeVideo.propTypes = {
+  setLatestHomeVideo: PropTypes.func.isRequired,
+  homeVideo: PropTypes.object.isRequired,
+}
+
 const mapStateToProps = state => ({
   homeVideo: state.homeVideo,
-  latestHomeVideoId: state.latestHomeVideoId
 })
 
 const mapDispatchToProps = dispatch => (

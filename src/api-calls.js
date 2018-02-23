@@ -6,4 +6,4 @@ export const requestVideo = (id) => (
   id + "/?api_key=" + api_key +
   "&format=jsonp&json_callback=callback&field_list=name," +
   "id,deck,embed_player,publish_date,image,video_type,hd_url,user"
-)
+);

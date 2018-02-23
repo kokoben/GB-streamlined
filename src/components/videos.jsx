@@ -1,11 +1,10 @@
 import React from 'react';
-import { Row, Col, Pagination, Card } from 'antd';
+import { Pagination } from 'antd';
 import VideoRow from './video_row';
 
 const Videos = props => {
   let rows = [];
   let num_videos_left = props.num_page_results;
-  let num_col_videos;
   let col_index = 0;
 
   // build each row of the video grid
