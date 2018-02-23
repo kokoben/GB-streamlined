@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import CurrentVideo from '../../components/current-video';
 import { setLatestBombcastVideo } from '../actions';
 
@@ -22,6 +23,11 @@ class CurrentBombcastVideo extends Component {
     );
   }
 }
+
+CurrentBombcastVideo.propTypes = {
+  bombcastVideo: PropTypes.object.isRequired,
+  setLatestBombcastVideo: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   bombcastVideo: state.bombcastVideo,
