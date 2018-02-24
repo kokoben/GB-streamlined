@@ -10,7 +10,6 @@ export const history = createHistory();
 
 const configureStore = () => {
   const initialState = {};
-  const enhancers = [];
   const sagaMiddleware = createSagaMiddleware();
   const middleware = [
     routerMiddleware(history),
@@ -18,24 +17,13 @@ const configureStore = () => {
     logger
   ];
 
-  if (process.env.NODE_ENV === 'development') {
-    const devToolsExtension = window.devToolsExtension
-
-    if (typeof devToolsExtension === 'function') {
-      enhancers.push(devToolsExtension())
-    }
-  }
-
-  const composedEnhancers = compose(
-    applyMiddleware(...middleware),
-    ...enhancers
-  );
-
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     rootReducer,
     initialState,
-    composedEnhancers
-  );
+    composeEnhancers(
+      applyMiddleware(...middleware)
+  ));
 
   sagaMiddleware.run(rootSaga);
   return store;

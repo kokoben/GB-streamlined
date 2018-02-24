@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pagination } from 'antd';
+import PropTypes from 'prop-types';
 import VideoRow from './video_row';
 
 const Videos = props => {
@@ -26,7 +27,11 @@ const Videos = props => {
   console.log(props.num_results);
   return (
     <div>
-      {rows.map((row, i) => <VideoRow videos={row} key={i} onCardClick={props.onCardClick} />)}
+      {rows.map((row, i) => <VideoRow 
+        videos={row} 
+        key={i} 
+        onCardClick={props.onCardClick} 
+      />)}
       <Pagination 
         defaultCurrent={1} 
         defaultPageSize={24}
@@ -35,6 +40,15 @@ const Videos = props => {
       />
     </div>
   )
+}
+
+Videos.propTypes = {
+  results: PropTypes.array.isRequired,
+  num_results: PropTypes.number.isRequired,
+  num_page_results: PropTypes.number.isRequired,
+  num_rows: PropTypes.number.isRequired,
+  onCardClick: PropTypes.func.isRequired,
+  onClickPageNum: PropTypes.func.isRequired,
 }
 
 export default Videos;

@@ -1,7 +1,7 @@
 import * as bActions from './actions/types';
 
 export const bombcastVideo = (state=null, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case bActions.BOMBCAST_VIDEO_SET_SUCCESS:
       console.log('bombcast_video_set_success!');
       return action.response;
@@ -12,7 +12,7 @@ export const bombcastVideo = (state=null, action) => {
     default:
       return state;
   }
-};
+}
 
 export const bombcastVideos = (state=null, action) => {
   switch (action.type) {
@@ -27,4 +27,4 @@ export const bombcastVideos = (state=null, action) => {
     default:
       return state;
   }
-};
+}

@@ -1,6 +1,7 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import jsonp from 'jsonp-promise';
 import * as bActions from './actions/types';
+import * as sharedActions from '../actions/types';
 import { requestVideo } from '../api-calls';
 import { requestBombcastVideos } from './api-calls';
 

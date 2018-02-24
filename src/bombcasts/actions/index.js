@@ -1,6 +1,6 @@
 import * as bActions from './types'
 
-export const setBombcastVideo = (id) => {
+export const setBombcastVideo = id => {
   console.log('inside setBombcastVideo');
   return {
     type: bActions.BOMBCAST_VIDEO_SET,
