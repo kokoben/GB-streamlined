@@ -12,35 +12,38 @@ class FeatureVideos extends Component {
 
   render() {
     if (this.props.featureVideos === null) return null;
-    const num_rows = Math.ceil(this.props.featureVideos.number_of_page_results / 4);
+    const numRows = Math.ceil(this.props.featureVideos.number_of_page_results / 4);
 
     return (
       <Videos
         results={this.props.featureVideos.results}
-        num_results={this.props.featureVideos.number_of_total_results}        
+        num_results={this.props.featureVideos.number_of_total_results}
         num_page_results={this.props.featureVideos.number_of_page_results}
-        num_rows={num_rows}
+        num_rows={numRows}
         onCardClick={this.props.setFeatureVideo}
         onClickPageNum={this.props.setFeatureVideos}
       />
-    )
+    );
   }
 }
 
+/* eslint-disable react/forbid-prop-types */
 FeatureVideos.propTypes = {
+  setFeatureVideo: PropTypes.func.isRequired,
   setFeatureVideos: PropTypes.func.isRequired,
   featureVideos: PropTypes.object.isRequired,
-}
+};
+/* eslint-enable */
 
 const mapStateToProps = state => ({
-  featureVideos: state.featureVideos
-})
+  featureVideos: state.featureVideos,
+});
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
     setFeatureVideo,
-    setFeatureVideos
+    setFeatureVideos,
   }, dispatch)
-)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeatureVideos);

@@ -15,4 +15,4 @@ export default combineReducers({
   quicklookVideos,
   bombcastVideo,
   bombcastVideos,
-})
+});

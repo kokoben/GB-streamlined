@@ -7,4 +7,4 @@ export default () => (
     <CurrentHomeVideo />
     <HomeVideos />
   </div>
-)
+);

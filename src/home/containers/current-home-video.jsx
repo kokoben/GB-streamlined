@@ -14,31 +14,33 @@ class CurrentHomeVideo extends Component {
     if (this.props.homeVideo === null) return null;
 
     return (
-      <CurrentVideo 
+      <CurrentVideo
         name={this.props.homeVideo.name}
         user={this.props.homeVideo.user}
         embed_player={this.props.homeVideo.embed_player}
         pub_date={this.props.homeVideo.publish_date}
         deck={this.props.homeVideo.deck}
-        />
-    )
+      />
+    );
   }
 }
 
+/* eslint-disable react/forbid-prop-types */
 CurrentHomeVideo.propTypes = {
   setLatestHomeVideo: PropTypes.func.isRequired,
   homeVideo: PropTypes.object.isRequired,
-}
+};
+/* eslint-enable */
 
 const mapStateToProps = state => ({
   homeVideo: state.homeVideo,
-})
+});
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
     setLatestHomeVideo,
   }, dispatch)
-)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentHomeVideo);
 

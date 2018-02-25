@@ -10,38 +10,41 @@ class BombcastVideos extends Component {
     this.props.setBombcastVideos(1, 24);
   }
 
-  render () {
+  render() {
     if (this.props.bombcastVideos === null) return null;
-    const num_rows = Math.ceil(this.props.bombcastVideos.number_of_page_results / 4);
+    const numRows = Math.ceil(this.props.bombcastVideos.number_of_page_results / 4);
 
     return (
       <Videos
         results={this.props.bombcastVideos.results}
         num_results={this.props.bombcastVideos.number_of_total_results}
         num_page_results={this.props.bombcastVideos.number_of_page_results}
-        num_rows={num_rows}
+        num_rows={numRows}
         onCardClick={this.props.setBombcastVideo}
         onClickPageNum={this.props.setBombcastVideos}
       />
-    )
+    );
   }
 }
 
+/* eslint-disable react/forbid-prop-types */
 BombcastVideos.propTypes = {
-  bombcastVideo: PropTypes.object.isRequired,
-  bombcastVideos: PropTypes.object.isRequired
-}
+  setBombcastVideo: PropTypes.func.isRequired,
+  setBombcastVideos: PropTypes.func.isRequired,
+  bombcastVideos: PropTypes.object.isRequired,
+};
+/* eslint-enable */
 
 const mapStateToProps = state => ({
   bombcastVideos: state.bombcastVideos,
   cardsLoading: state.cardsLoading,
-})
+});
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
     setBombcastVideo,
-    setBombcastVideos
+    setBombcastVideos,
   }, dispatch)
-)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(BombcastVideos);

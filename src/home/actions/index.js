@@ -4,19 +4,19 @@ export const setHomeVideo = (id) => {
   console.log('inside setHomeVideo');
   return {
     type: hActions.HOME_VIDEO_SET,
-    id
-  }
-}
+    id,
+  };
+};
 
 export const setHomeVideos = (page, pageSize) => {
   console.log('inside setHomeVideos');
   return {
     type: hActions.HOME_VIDEOS_SET,
-    page, 
-    pageSize
-  }
-}
+    page,
+    pageSize,
+  };
+};
 
 export const setLatestHomeVideo = () => ({
-  type: hActions.LATEST_HOME_VIDEO_SET
-})
+  type: hActions.LATEST_HOME_VIDEO_SET,
+});

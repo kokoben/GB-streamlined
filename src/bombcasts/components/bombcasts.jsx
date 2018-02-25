@@ -7,5 +7,5 @@ export default () => (
     <CurrentBombcastVideo />
     <BombcastVideos />
   </div>
-)
+);
 

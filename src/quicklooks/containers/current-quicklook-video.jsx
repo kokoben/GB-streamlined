@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { setLatestQuicklookVideo } from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setLatestQuicklookVideo } from '../actions';
 import CurrentVideo from '../../components/current-video';
 
 class CurrentQuicklookVideo extends Component {
@@ -13,30 +13,32 @@ class CurrentQuicklookVideo extends Component {
   render() {
     if (this.props.quicklookVideo === null) return null;
     return (
-      <CurrentVideo  
+      <CurrentVideo
         name={this.props.quicklookVideo.name}
         user={this.props.quicklookVideo.user}
         embed_player={this.props.quicklookVideo.embed_player}
         pub_date={this.props.quicklookVideo.publish_date}
         deck={this.props.quicklookVideo.deck}
       />
-    )
+    );
   }
 }
 
+/* eslint-disable react/forbid-prop-types */
 CurrentQuicklookVideo.propTypes = {
   setLatestQuicklookVideo: PropTypes.func.isRequired,
-  quicklookVideo: PropTypes.object.isrequired,
-}
+  quicklookVideo: PropTypes.object.isRequired,
+};
+/* eslint-enable */
 
 const mapStateToProps = state => ({
-  quicklookVideo: state.quicklookVideo
-})
+  quicklookVideo: state.quicklookVideo,
+});
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    setLatestQuicklookVideo
+    setLatestQuicklookVideo,
   }, dispatch)
-)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentQuicklookVideo);

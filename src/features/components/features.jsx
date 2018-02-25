@@ -6,5 +6,5 @@ export default () => (
   <div>
     <CurrentFeatureVideo />
     <FeatureVideos />
-  </div> 
-)
+  </div>
+);

@@ -1,22 +1,22 @@
-import { 
-  watchSetHomeVideo, 
-  watchSetLatestHomeVideo ,
-  watchSetHomeVideos
+import {
+  watchSetHomeVideo,
+  watchSetLatestHomeVideo,
+  watchSetHomeVideos,
 } from './home/sagas';
-import { 
-  watchSetFeatureVideo, 
+import {
+  watchSetFeatureVideo,
   watchSetLatestFeatureVideo,
   watchSetFeatureVideos,
 } from './features/sagas';
-import { 
-  watchSetQuicklookVideo, 
+import {
+  watchSetQuicklookVideo,
   watchSetLatestQuicklookVideo,
-  watchSetQuicklookVideos 
+  watchSetQuicklookVideos,
 } from './quicklooks/sagas';
-import { 
-  watchSetBombcastVideo, 
+import {
+  watchSetBombcastVideo,
   watchSetLatestBombcastVideo,
-  watchSetBombcastVideos
+  watchSetBombcastVideos,
 } from './bombcasts/sagas';
 
 export default function* rootSaga() {
@@ -33,5 +33,5 @@ export default function* rootSaga() {
     watchSetBombcastVideo(),
     watchSetLatestBombcastVideo(),
     watchSetBombcastVideos(),
-  ]
+  ];
 }

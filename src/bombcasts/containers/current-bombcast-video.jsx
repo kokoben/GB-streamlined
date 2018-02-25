@@ -25,18 +25,19 @@ class CurrentBombcastVideo extends Component {
 }
 
 CurrentBombcastVideo.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   bombcastVideo: PropTypes.object.isRequired,
   setLatestBombcastVideo: PropTypes.func.isRequired,
-}
+};
 
 const mapStateToProps = state => ({
   bombcastVideo: state.bombcastVideo,
-})
+});
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
     setLatestBombcastVideo,
   }, dispatch)
-)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentBombcastVideo);

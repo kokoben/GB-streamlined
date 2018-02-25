@@ -4,19 +4,19 @@ export const setFeatureVideo = (id) => {
   console.log('inside setFeatureVideo');
   return {
     type: fActions.FEATURE_VIDEO_SET,
-    id
-  }
-}
+    id,
+  };
+};
 
 export const setFeatureVideos = (page, pageSize) => {
   console.log('inside setFeatureVideos');
   return {
     type: fActions.FEATURE_VIDEOS_SET,
     page,
-    pageSize
-  }
-}
+    pageSize,
+  };
+};
 
 export const setLatestFeatureVideo = () => ({
-  type: fActions.LATEST_FEATURE_VIDEO_SET
-})
+  type: fActions.LATEST_FEATURE_VIDEO_SET,
+});

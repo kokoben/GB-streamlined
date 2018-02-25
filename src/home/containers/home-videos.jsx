@@ -10,37 +10,40 @@ class HomeVideos extends Component {
     this.props.setHomeVideos(1, 24);
   }
 
-  render () {
+  render() {
     if (this.props.homeVideos === null) return null;
-    const num_rows = Math.ceil(this.props.homeVideos.number_of_page_results / 4);
+    const numRows = Math.ceil(this.props.homeVideos.number_of_page_results / 4);
 
     return (
-      <Videos 
+      <Videos
         results={this.props.homeVideos.results}
         num_results={this.props.homeVideos.number_of_total_results}
         num_page_results={this.props.homeVideos.number_of_page_results}
-        num_rows={num_rows}
+        num_rows={numRows}
         onCardClick={this.props.setHomeVideo}
         onClickPageNum={this.props.setHomeVideos}
       />
-    )
+    );
   }
 }
 
+/* eslint-disable react/forbid-prop-types */
 HomeVideos.propTypes = {
+  setHomeVideo: PropTypes.func.isRequired,
   setHomeVideos: PropTypes.func.isRequired,
   homeVideos: PropTypes.object.isRequired,
-}
+};
+/* eslint-enable */
 
 const mapStateToProps = state => ({
-  homeVideos: state.homeVideos
-})
+  homeVideos: state.homeVideos,
+});
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
     setHomeVideo,
-    setHomeVideos
-  }, dispatch);
-}
+    setHomeVideos,
+  }, dispatch)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeVideos);

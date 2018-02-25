@@ -1,7 +1,8 @@
 import * as hActions from './actions/types';
 
-export const homeVideo = (state=null, action) => {
-  switch(action.type) {
+/* eslint-disable consistent-return */
+export const homeVideo = (state = null, action) => {
+  switch (action.type) {
     case hActions.HOME_VIDEO_SET_SUCCESS:
       console.log('home_video_set_success!');
       return action.response;
@@ -12,14 +13,15 @@ export const homeVideo = (state=null, action) => {
     default:
       return state;
   }
-}
+};
 
-export const homeVideos = (state=null, action) => {
-  switch(action.type) {
-    case hActions.HOME_VIDEOS_SET_SUCCESS:
+export const homeVideos = (state = null, action) => {
+  switch (action.type) {
+    case hActions.HOME_VIDEOS_SET_SUCCESS: {
       console.log('home_video_set_success!');
       const data = action.response;
       return data;
+    }
     case hActions.HOME_VIDEOS_SET_FAIL:
       console.log('home_video_set_fail!');
       console.log(action.message);
@@ -27,4 +29,5 @@ export const homeVideos = (state=null, action) => {
     default:
       return state;
   }
-}
+};
+/* eslint-enable */

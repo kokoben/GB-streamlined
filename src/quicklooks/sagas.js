@@ -4,23 +4,23 @@ import * as qlActions from './actions/types';
 import { requestQuicklookVideos } from './api-calls';
 import { requestVideo } from '../api-calls';
 
-const jsonpWrapper = args => {
+const jsonpWrapper = (args) => {
   const response = jsonp(...args);
   return response.promise;
-}
+};
 
-const params = {param: 'json_callback'};
+const params = { param: 'json_callback' };
 
 // workers
 function* setQuicklookVideoAsync(action) {
   try {
     const jsonpArgs = [requestVideo(action.id), params];
     const response = yield call(jsonpWrapper, jsonpArgs);
-    yield put({type: qlActions.QUICKLOOK_VIDEO_SET_SUCCESS, response: response.results});
+    yield put({ type: qlActions.QUICKLOOK_VIDEO_SET_SUCCESS, response: response.results });
   } catch (e) {
     console.log('quicklook_video_set_failed!');
     console.log(e);
-    yield put({type: qlActions.QUICKLOOK_VIDEO_SET_FAIL, message: e.message});
+    yield put({ type: qlActions.QUICKLOOK_VIDEO_SET_FAIL, message: e.message });
   }
 }
 
@@ -28,9 +28,9 @@ function* setLatestQuicklookVideoAsync() {
   try {
     const jsonpArgs = [requestQuicklookVideos(1), params];
     const response = yield call(jsonpWrapper, jsonpArgs);
-    yield put ({type: qlActions.QUICKLOOK_VIDEO_SET_SUCCESS, response: response.results[0]});
+    yield put({ type: qlActions.QUICKLOOK_VIDEO_SET_SUCCESS, response: response.results[0] });
   } catch (e) {
-    yield put({type: qlActions.QUICKLOOK_VIDEO_SET_FAIL, message: e.message});
+    yield put({ type: qlActions.QUICKLOOK_VIDEO_SET_FAIL, message: e.message });
   }
 }
 
@@ -38,12 +38,12 @@ function* setQuicklookVideosAsync(action) {
   try {
     const jsonpArgs = [requestQuicklookVideos(action.page), params];
     const response = yield call(jsonpWrapper, jsonpArgs);
-    yield put({type: qlActions.QUICKLOOK_VIDEOS_SET_SUCCESS, response: response});
+    yield put({ type: qlActions.QUICKLOOK_VIDEOS_SET_SUCCESS, response });
   } catch (e) {
     console.log('quicklook_videos_set_failed!');
-    yield put({type: qlActions.QUICKLOOK_VIDEOS_SET_FAIL, message: e.message});
+    yield put({ type: qlActions.QUICKLOOK_VIDEOS_SET_FAIL, message: e.message });
   }
-} 
+}
 
 // watchers
 export function* watchSetQuicklookVideo() {

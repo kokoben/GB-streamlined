@@ -11,17 +11,17 @@ const CurrentVideo = props => (
         <p>{props.deck}</p>
       </Col>
       <Col span={16}>
-        <iframe 
-          allowFullScreen 
+        <iframe
+          allowFullScreen
           title="Current Video"
-          src={props.embed_player} 
-          width="640" 
-          height="360">
-        </iframe>
+          src={props.embed_player}
+          width="640"
+          height="360"
+        />
       </Col>
     </Row>
   </div>
-)
+);
 
 CurrentVideo.propTypes = {
   name: PropTypes.string.isRequired,
@@ -29,6 +29,6 @@ CurrentVideo.propTypes = {
   pub_date: PropTypes.string.isRequired,
   deck: PropTypes.string.isRequired,
   embed_player: PropTypes.string.isRequired,
-}
+};
 
 export default CurrentVideo;
