@@ -3,7 +3,7 @@ import { Row, Col } from 'antd';
 import PropTypes from 'prop-types';
 
 const CurrentVideo = props => (
-  <div>
+  <div style={{margin: '0 auto', width: '80%' }}>
     <Row type="flex" justify="center">
       <Col span={8}>
         <p>{props.name}</p>

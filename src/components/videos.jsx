@@ -34,7 +34,7 @@ const Videos = (props) => {
   console.log('rows array', rows);
   console.log(props.num_results);
   return (
-    <div>
+    <div style={{ marginTop: '50px' }}>
       {rows.map((row, i) => (
         <VideoRow
           videos={row}
