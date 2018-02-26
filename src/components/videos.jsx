@@ -1,8 +1,10 @@
 import React from 'react';
 import { Pagination } from 'antd';
+import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import uuid from 'uuid-v4';
 import VideoRow from './video_row';
+import FeedHeader from './feed-header';
 
 const Videos = (props) => {
   const rows = [];
@@ -35,6 +37,11 @@ const Videos = (props) => {
   console.log(props.num_results);
   return (
     <div style={{ marginTop: '50px' }}>
+      <Route exact path="/" render={() => <FeedHeader category="" />} />
+      <Route path="/quicklooks" render={() => <FeedHeader category="Quick Look" />} />
+      <Route path="/features" render={() => <FeedHeader category="Feature" />} />
+      <Route path="/bombcasts" render={() => <FeedHeader category="Bombcast" />} />
+
       {rows.map((row, i) => (
         <VideoRow
           videos={row}

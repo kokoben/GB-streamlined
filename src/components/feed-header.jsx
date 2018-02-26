@@ -7,9 +7,9 @@ const { Header } = Layout;
 const FeedHeader = props => (
   <Header
     style={{
-      background: '#f0f2f5',
-      width: '80%',
+      background: '#fff',
       margin: '0 auto',
+      padding: '0',
     }}
   >
     Latest {props.category} Episodes
