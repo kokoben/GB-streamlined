@@ -20,6 +20,7 @@ class BombcastVideos extends Component {
         num_results={this.props.bombcastVideos.number_of_total_results}
         num_page_results={this.props.bombcastVideos.number_of_page_results}
         num_rows={numRows}
+        category="Bombcast"
         onCardClick={this.props.setBombcastVideo}
         onClickPageNum={this.props.setBombcastVideos}
       />

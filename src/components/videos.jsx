@@ -37,11 +37,7 @@ const Videos = (props) => {
   console.log(props.num_results);
   return (
     <div style={{ marginTop: '50px' }}>
-      <Route exact path="/" render={() => <FeedHeader category="" />} />
-      <Route path="/quicklooks" render={() => <FeedHeader category="Quick Look" />} />
-      <Route path="/features" render={() => <FeedHeader category="Feature" />} />
-      <Route path="/bombcasts" render={() => <FeedHeader category="Bombcast" />} />
-
+      <FeedHeader category={props.category} />
       {rows.map((row, i) => (
         <VideoRow
           videos={row}
@@ -62,6 +58,7 @@ const Videos = (props) => {
 Videos.propTypes = {
   results: PropTypes.array.isRequired,
   num_results: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
   num_page_results: PropTypes.number.isRequired,
   num_rows: PropTypes.number.isRequired,
   onCardClick: PropTypes.func.isRequired,

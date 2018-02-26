@@ -20,6 +20,7 @@ class HomeVideos extends Component {
         num_results={this.props.homeVideos.number_of_total_results}
         num_page_results={this.props.homeVideos.number_of_page_results}
         num_rows={numRows}
+        category=""
         onCardClick={this.props.setHomeVideo}
         onClickPageNum={this.props.setHomeVideos}
       />

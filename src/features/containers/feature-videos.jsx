@@ -20,6 +20,7 @@ class FeatureVideos extends Component {
         num_results={this.props.featureVideos.number_of_total_results}
         num_page_results={this.props.featureVideos.number_of_page_results}
         num_rows={numRows}
+        category="Feature"
         onCardClick={this.props.setFeatureVideo}
         onClickPageNum={this.props.setFeatureVideos}
       />

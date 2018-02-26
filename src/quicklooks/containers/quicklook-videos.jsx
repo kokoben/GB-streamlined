@@ -20,6 +20,7 @@ class QuicklookVideos extends Component {
         num_results={this.props.quicklookVideos.number_of_total_results}
         num_page_results={this.props.quicklookVideos.number_of_page_results}
         num_rows={numRows}
+        category="Quick Look"
         onCardClick={this.props.setQuicklookVideo}
         onClickPageNum={this.props.setQuicklookVideos}
       />
