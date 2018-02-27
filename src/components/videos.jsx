@@ -1,10 +1,8 @@
 import React from 'react';
 import { Pagination } from 'antd';
-import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import uuid from 'uuid-v4';
 import VideoRow from './video_row';
-import FeedHeader from './feed-header';
 
 const Videos = (props) => {
   const rows = [];
@@ -33,11 +31,8 @@ const Videos = (props) => {
     videoIds.push(videoId);
   }
 
-  console.log('rows array', rows);
-  console.log(props.num_results);
   return (
-    <div style={{ marginTop: '50px' }}>
-      <FeedHeader category={props.category} />
+    <div>
       {rows.map((row, i) => (
         <VideoRow
           videos={row}
@@ -58,7 +53,6 @@ const Videos = (props) => {
 Videos.propTypes = {
   results: PropTypes.array.isRequired,
   num_results: PropTypes.number.isRequired,
-  category: PropTypes.string.isRequired,
   num_page_results: PropTypes.number.isRequired,
   num_rows: PropTypes.number.isRequired,
   onCardClick: PropTypes.func.isRequired,

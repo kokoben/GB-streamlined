@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const CurrentVideo = props => (
   <div style={{ margin: '0 auto', width: '80%' }}>
-    <Row type="flex" justify="center">
+    <Row type="flex" justify="space-around">
       <Col span={8}>
         <p>{props.name}</p>
         <p> Posted by {props.user} | {props.pub_date}</p>
