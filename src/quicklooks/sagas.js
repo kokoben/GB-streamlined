@@ -1,8 +1,10 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import jsonp from 'jsonp-promise';
+import _ from 'lodash';
+import moment from 'moment';
 import * as qlActions from './actions/types';
 import { requestQuicklookVideos } from './api-calls';
-import { requestVideo } from '../api-calls';
+import { requestVideo, requestSearchVideos } from '../api-calls';
 
 const jsonpWrapper = (args) => {
   const response = jsonp(...args);
@@ -45,6 +47,37 @@ function* setQuicklookVideosAsync(action) {
   }
 }
 
+function* fetchQuicklookSearchVideosAsync(action) {
+  try {
+    console.log('inside fetchQuicklookSearchVideosAsync');
+    // get the entire list of search results, then filter only quicklooks
+    // and sort by publish date in descending order.
+    let results = [];
+    let page = 1;
+    let resultsCount = 0;
+    let jsonpArgs = [requestSearchVideos(action.keywords, page), params];
+    let response = yield call(jsonpWrapper, jsonpArgs);
+    console.log('fetch response:', response);
+
+    while (resultsCount < response.number_of_total_results) {
+      results = [...results, ...response.results];
+      resultsCount += response.number_of_page_results;
+      page += 1;
+      jsonpArgs = [requestSearchVideos(action.keywords, page), params];
+      response = yield call(jsonpWrapper, jsonpArgs);
+    }
+
+    console.log('results: ', results);
+    results = results.filter(result => result.video_type === 'Quick Looks');
+    console.log('filtered results: ', results);
+    results = _.sortBy(results, o => new moment(o.publish_date)).reverse();
+    console.log('filtered results by descending date: ', results);
+  } catch (e) {
+    yield put({ type: qlActions.QUICKLOOK_SEARCH_FETCH_FAIL, message: e.message });
+    console.log('aw poop');
+  }
+}
+
 // watchers
 export function* watchSetQuicklookVideo() {
   console.log('redux-saga is running the qlActions.QUICKLOOK_VIDEO_SET action listener');
@@ -57,6 +90,11 @@ export function* watchSetQuicklookVideos() {
 }
 
 export function* watchSetLatestQuicklookVideo() {
-  console.log('redux-saga is running the LATEST_qlActions.QUICKLOOK_VIDEO_SET action listener');
+  console.log('redux-saga is running the qlActions.LATEST_QUICKLOOK_VIDEO_SET action listener');
   yield takeEvery(qlActions.LATEST_QUICKLOOK_VIDEO_SET, setLatestQuicklookVideoAsync);
+}
+
+export function* watchFetchQuicklookSearchVideos() {
+  console.log('redux-saga is running the qlActions.QUICKLOOK_SEARCH_FETCH action listener');
+  yield takeEvery(qlActions.QUICKLOOK_SEARCH_FETCH, fetchQuicklookSearchVideosAsync);
 }

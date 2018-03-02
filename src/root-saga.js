@@ -12,6 +12,7 @@ import {
   watchSetQuicklookVideo,
   watchSetLatestQuicklookVideo,
   watchSetQuicklookVideos,
+  watchFetchQuicklookSearchVideos,
 } from './quicklooks/sagas';
 import {
   watchSetBombcastVideo,
@@ -28,6 +29,7 @@ export default function* rootSaga() {
     watchSetLatestFeatureVideo(),
     watchSetFeatureVideos(),
     watchSetQuicklookVideo(),
+    watchFetchQuicklookSearchVideos(),
     watchSetLatestQuicklookVideo(),
     watchSetQuicklookVideos(),
     watchSetBombcastVideo(),

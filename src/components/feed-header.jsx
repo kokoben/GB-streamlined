@@ -18,7 +18,10 @@ const FeedHeader = props => (
         Latest {props.category} Episodes
       </Col>
       <Col span={6} offset={10}>
-        <SearchBar placeholder={props.placeholder} />
+        <SearchBar
+          placeholder={props.placeholder}
+          fetchVideos={props.fetchVideos}
+        />
       </Col>
     </Row>
   </Header>
@@ -27,6 +30,7 @@ const FeedHeader = props => (
 FeedHeader.propTypes = {
   category: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  fetchVideos: PropTypes.func.isRequired,
 };
 
 export default FeedHeader;
