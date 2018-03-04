@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import * as qlActions from './actions/types';
 
 /* eslint-disable consistent-return */
@@ -30,4 +31,24 @@ export const quicklookVideos = (state = null, action) => {
       return state;
   }
 };
+
+export const quicklookSearchResults = (state = [], action) => {
+  switch (action.type) {
+    case qlActions.QUICKLOOK_SEARCH_FETCH_SUCCESS:
+      console.log('quicklook_search_fetch_success!');
+      return action.results;
+    case qlActions.QUICKLOOK_SEARCH_FETCH_FAIL:
+      console.log('quicklook_search_fetch_fail!');
+      console.log(action.message);
+      break;
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({
+  quicklookVideo,
+  quicklookVideos,
+  quicklookSearchResults,
+});
 /* eslint-enable */

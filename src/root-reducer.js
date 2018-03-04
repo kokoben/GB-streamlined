@@ -1,18 +1,16 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { homeVideo, homeVideos } from './home/reducers';
-import { featureVideo, featureVideos } from './features/reducers';
-import { quicklookVideo, quicklookVideos } from './quicklooks/reducers';
-import { bombcastVideo, bombcastVideos } from './bombcasts/reducers';
+import SharedReducers from './reducers';
+import HomeReducers from './home/reducers';
+import FeatureReducers from './features/reducers';
+import QuicklookReducers from './quicklooks/reducers';
+import BombcastReducers from './bombcasts/reducers';
 
 export default combineReducers({
   routing: routerReducer,
-  homeVideo,
-  homeVideos,
-  featureVideo,
-  featureVideos,
-  quicklookVideo,
-  quicklookVideos,
-  bombcastVideo,
-  bombcastVideos,
+  shared: SharedReducers,
+  home: HomeReducers,
+  quicklooks: QuicklookReducers,
+  bombcasts: BombcastReducers,
+  features: FeatureReducers,
 });

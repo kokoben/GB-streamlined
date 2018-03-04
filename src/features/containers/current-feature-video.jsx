@@ -15,29 +15,31 @@ class CurrentFeatureVideo extends Component {
 
     return (
       <CurrentVideo
-        name={this.props.featureVideo.name} 
+        name={this.props.featureVideo.name}
         user={this.props.featureVideo.user}
         deck={this.props.featureVideo.deck}
         pub_date={this.props.featureVideo.publish_date}
         embed_player={this.props.featureVideo.embed_player}
       />
-    )
+    );
   }
 }
 
+/* eslint-disable react/forbid-prop-types */
 CurrentFeatureVideo.propTypes = {
   setLatestFeatureVideo: PropTypes.func.isRequired,
   featureVideo: PropTypes.object.isRequired,
-}
+};
+/* eslint-enable */
 
 const mapStateToProps = state => ({
-  featureVideo: state.featureVideo
-})
+  featureVideo: state.features.featureVideo,
+});
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    setLatestFeatureVideo
+    setLatestFeatureVideo,
   }, dispatch)
-)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentFeatureVideo);

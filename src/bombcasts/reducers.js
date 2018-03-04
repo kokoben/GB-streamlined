@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import * as bActions from './actions/types';
 
 /* eslint-disable consistent-return */
@@ -27,3 +28,8 @@ export const bombcastVideos = (state = null, action) => {
   }
 };
 /* eslint-enable */
+
+export default combineReducers({
+  bombcastVideo,
+  bombcastVideos,
+});

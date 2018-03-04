@@ -31,7 +31,7 @@ CurrentBombcastVideo.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  bombcastVideo: state.bombcastVideo,
+  bombcastVideo: state.bombcasts.bombcastVideo,
 });
 
 const mapDispatchToProps = dispatch => (

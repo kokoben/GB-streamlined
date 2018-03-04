@@ -15,10 +15,7 @@ export const setLatestQuicklookVideo = () => ({
   type: qlActions.LATEST_QUICKLOOK_VIDEO_SET,
 });
 
-export const fetchQuicklookSearchVideos = (keywords) => {
-  console.log('inside fetchQuicklookSearchVideos');
-  return {
-    type: qlActions.QUICKLOOK_SEARCH_FETCH,
-    keywords,
-  };
-};
+export const fetchQuicklookSearchVideos = keywords => ({
+  type: qlActions.QUICKLOOK_SEARCH_FETCH,
+  keywords,
+});

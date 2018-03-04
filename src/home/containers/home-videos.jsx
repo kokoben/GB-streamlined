@@ -37,7 +37,7 @@ HomeVideos.propTypes = {
 /* eslint-enable */
 
 const mapStateToProps = state => ({
-  homeVideos: state.homeVideos,
+  homeVideos: state.home.homeVideos,
 });
 
 const mapDispatchToProps = dispatch => (

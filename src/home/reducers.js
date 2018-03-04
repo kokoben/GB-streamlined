@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import * as hActions from './actions/types';
 
 /* eslint-disable consistent-return */
@@ -30,4 +31,9 @@ export const homeVideos = (state = null, action) => {
       return state;
   }
 };
+
+export default combineReducers({
+  homeVideo,
+  homeVideos,
+});
 /* eslint-enable */

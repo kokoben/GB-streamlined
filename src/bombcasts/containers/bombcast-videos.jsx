@@ -37,8 +37,7 @@ BombcastVideos.propTypes = {
 /* eslint-enable */
 
 const mapStateToProps = state => ({
-  bombcastVideos: state.bombcastVideos,
-  cardsLoading: state.cardsLoading,
+  bombcastVideos: state.bombcasts.bombcastVideos,
 });
 
 const mapDispatchToProps = dispatch => (

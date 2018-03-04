@@ -27,10 +27,13 @@ const FeedHeader = props => (
   </Header>
 );
 
+/* eslint-disable react/forbid-prop-types */
 FeedHeader.propTypes = {
   category: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   fetchVideos: PropTypes.func.isRequired,
+  currentResults: PropTypes.array.isRequired,
 };
+/* eslint-enable */
 
 export default FeedHeader;

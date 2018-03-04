@@ -37,7 +37,7 @@ QuicklookVideos.propTypes = {
 /* eslint-enable */
 
 const mapStateToProps = state => ({
-  quicklookVideos: state.quicklookVideos,
+  quicklookVideos: state.quicklooks.quicklookVideos,
 });
 
 const mapDispatchToProps = dispatch => (
