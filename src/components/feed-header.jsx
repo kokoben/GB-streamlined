@@ -21,6 +21,7 @@ const FeedHeader = props => (
         <SearchBar
           placeholder={props.placeholder}
           fetchVideos={props.fetchVideos}
+          currentResults={props.currentResults}
         />
       </Col>
     </Row>

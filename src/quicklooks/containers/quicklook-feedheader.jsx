@@ -11,7 +11,7 @@ class QuicklookFeedHeader extends Component {
     return (
       <FeedHeader
         category="Quicklook"
-        placeholder="Search for Quick Look Videos..."
+        placeholder="Search for Quick Look videos..."
         fetchVideos={this.props.fetchQuicklookSearchVideos}
         currentResults={this.props.currentQlSearchResults}
       />

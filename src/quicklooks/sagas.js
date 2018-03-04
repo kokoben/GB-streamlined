@@ -1,7 +1,7 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import jsonp from 'jsonp-promise';
 import _ from 'lodash';
-import moment from 'moment';
+import Moment from 'moment';
 import * as qlActions from './actions/types';
 import { requestQuicklookVideos } from './api-calls';
 import { requestVideo, requestSearchVideos } from '../api-calls';
@@ -70,7 +70,7 @@ function* fetchQuicklookSearchVideosAsync(action) {
     console.log('results: ', results);
     results = results.filter(result => result.video_type === 'Quick Looks');
     console.log('filtered results: ', results);
-    results = _.sortBy(results, o => new moment(o.publish_date)).reverse();
+    results = _.sortBy(results, o => new Moment(o.publish_date)).reverse();
     yield put({ type: qlActions.QUICKLOOK_SEARCH_FETCH_SUCCESS, results, page: 1 });
     console.log('filtered results by descending date: ', results);
   } catch (e) {
