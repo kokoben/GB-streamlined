@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Select, Spin } from 'antd';
 import _ from 'lodash';
+import { setSearchSpinner } from '../actions/index';
 
 const Option = Select.Option;
 
@@ -13,39 +14,36 @@ class SearchBar extends Component {
 
     this.state = {
       query: '',
-      fetching: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSearch = _.debounce(this.handleSearch, 500);
-  }
-
-  componentDidUpdate() {
-    console.log('currentResults in componentDidUpdate: ', this.props.currentResults);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleChange(value) {
     this.setState({
       query: value,
-      fetching: false,
     });
+    this.props.setSearchSpinner(true);
   }
 
   handleSearch(value) {
-    console.log('fetching videos with keywords', value);
-    this.setState({ query: value, fetching: true });
+    this.setState({ query: value });
     this.props.fetchVideos(value);
-    this.setState({ fetching: false });
+  }
+
+  handleSelect(value) {
+    this.props.setVideo(value);
   }
 
   render() {
-    console.log('currentResults in render: ', this.props.currentResults);
     const results = this.props.currentResults.map(result => (
       <Option key={result.id} style={{ lineHeight: '22px' }}>
         <img
           src={result.image.icon_url}
-          alt=''
+          alt=""
           style={{
             display: 'inline-block',
             lineHeight: 'normal',
@@ -76,9 +74,10 @@ class SearchBar extends Component {
         placeholder={this.props.placeholder}
         defaultActiveFirstOption={false}
         filterOption={false}
-        notFoundContent={this.state.fetching ? <Spin size="small" /> : null}
+        notFoundContent={this.props.searchSpinnerOn ? <Spin size="small" /> : null}
         onChange={this.handleChange}
         onSearch={this.handleSearch}
+        onSelect={this.handleSelect}
       >
         {results}
       </Select>
@@ -91,7 +90,19 @@ SearchBar.propTypes = {
   fetchVideos: PropTypes.func.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   currentResults: PropTypes.array.isRequired,
+  setSearchSpinner: PropTypes.func.isRequired,
+  searchSpinnerOn: PropTypes.bool.isRequired,
+  setVideo: PropTypes.func.isRequired,
 };
 
-export default SearchBar;
+const mapStateToProps = state => ({
+  searchSpinnerOn: state.searchSpinnerOn,
+});
 
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    setSearchSpinner,
+  }, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

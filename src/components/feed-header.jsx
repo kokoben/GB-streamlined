@@ -15,13 +15,14 @@ const FeedHeader = props => (
   >
     <Row>
       <Col span={8}>
-        Latest {props.category} Episodes {props.currentResults.length}
+        Latest {props.category} Episodes
       </Col>
       <Col span={6} offset={10}>
         <SearchBar
           placeholder={props.placeholder}
           fetchVideos={props.fetchVideos}
           currentResults={props.currentResults}
+          setVideo={props.setVideo}
         />
       </Col>
     </Row>
@@ -34,6 +35,7 @@ FeedHeader.propTypes = {
   placeholder: PropTypes.string.isRequired,
   fetchVideos: PropTypes.func.isRequired,
   currentResults: PropTypes.array.isRequired,
+  setVideo: PropTypes.func.isRequired,
 };
 /* eslint-enable */
 

@@ -32,8 +32,23 @@ export const featureVideos = (state = null, action) => {
   }
 };
 
+export const featureSearchResults = (state = [], action) => {
+  switch (action.type) {
+    case fActions.FEATURE_SEARCH_FETCH_SUCCESS:
+      console.log('feature_search_fetch_success!');
+      return action.results;
+    case fActions.FEATURE_SEARCH_FETCH_FAIL:
+      console.log('feature_search_fetch_fail!');
+      console.log(action.message);
+      break;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   featureVideo,
   featureVideos,
+  featureSearchResults,
 });
 /* eslint-enable */

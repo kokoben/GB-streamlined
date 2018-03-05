@@ -1,0 +1,1 @@
+export const SEARCH_SPINNER_SET = 'SEARCH_SPINNER_SET';

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import FeedHeader from '../../components/feed-header';
-import { fetchQuicklookSearchVideos } from '../actions/index';
+import { fetchQuicklookSearchVideos, setQuicklookVideo } from '../actions/index';
 import QlSearchResultsSelector from '../selectors/current-ql-search-results';
 
 class QuicklookFeedHeader extends Component {
@@ -14,6 +14,7 @@ class QuicklookFeedHeader extends Component {
         placeholder="Search for Quick Look videos..."
         fetchVideos={this.props.fetchQuicklookSearchVideos}
         currentResults={this.props.currentQlSearchResults}
+        setVideo={this.props.setQuicklookVideo}
       />
     );
   }
@@ -23,6 +24,7 @@ class QuicklookFeedHeader extends Component {
 QuicklookFeedHeader.propTypes = {
   fetchQuicklookSearchVideos: PropTypes.func.isRequired,
   currentQlSearchResults: PropTypes.array.isRequired,
+  setQuicklookVideo: PropTypes.func.isRequired,
 };
 /* eslint-enable */
 
@@ -33,6 +35,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
     fetchQuicklookSearchVideos,
+    setQuicklookVideo,
   }, dispatch)
 );
 

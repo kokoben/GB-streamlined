@@ -2,6 +2,7 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 import jsonp from 'jsonp-promise';
 import _ from 'lodash';
 import Moment from 'moment';
+import * as sharedActions from '../actions/types';
 import * as qlActions from './actions/types';
 import { requestQuicklookVideos } from './api-calls';
 import { requestVideo, requestSearchVideos } from '../api-calls';
@@ -67,12 +68,16 @@ function* fetchQuicklookSearchVideosAsync(action) {
       response = yield call(jsonpWrapper, jsonpArgs);
     }
 
-    console.log('results: ', results);
     results = results.filter(result => result.video_type === 'Quick Looks');
-    console.log('filtered results: ', results);
     results = _.sortBy(results, o => new Moment(o.publish_date)).reverse();
-    console.log('filtered results by descending date: ', results);
-    yield put({ type: qlActions.QUICKLOOK_SEARCH_FETCH_SUCCESS, results, page: 1 });
+
+    yield put({
+      type: qlActions.QUICKLOOK_SEARCH_FETCH_SUCCESS,
+      results,
+      page: 1,
+    });
+
+    yield put({ type: sharedActions.SEARCH_SPINNER_SET, on: false });
   } catch (e) {
     yield put({ type: qlActions.QUICKLOOK_SEARCH_FETCH_FAIL, message: e.message });
   }

@@ -25,7 +25,7 @@ const Videos = (props) => {
     }
   }
 
-  // assign a unique id to each video
+  // assign a unique id to each video row
   for (let i = 0; i < rows.length; i += 1) {
     const videoId = uuid();
     videoIds.push(videoId);

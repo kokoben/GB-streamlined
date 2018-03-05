@@ -20,3 +20,8 @@ export const setFeatureVideos = (page, pageSize) => {
 export const setLatestFeatureVideo = () => ({
   type: fActions.LATEST_FEATURE_VIDEO_SET,
 });
+
+export const fetchFeatureSearchVideos = keywords => ({
+  type: fActions.FEATURE_SEARCH_FETCH,
+  keywords,
+});
