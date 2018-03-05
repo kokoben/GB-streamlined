@@ -71,8 +71,8 @@ function* fetchQuicklookSearchVideosAsync(action) {
     results = results.filter(result => result.video_type === 'Quick Looks');
     console.log('filtered results: ', results);
     results = _.sortBy(results, o => new Moment(o.publish_date)).reverse();
-    yield put({ type: qlActions.QUICKLOOK_SEARCH_FETCH_SUCCESS, results, page: 1 });
     console.log('filtered results by descending date: ', results);
+    yield put({ type: qlActions.QUICKLOOK_SEARCH_FETCH_SUCCESS, results, page: 1 });
   } catch (e) {
     yield put({ type: qlActions.QUICKLOOK_SEARCH_FETCH_FAIL, message: e.message });
   }

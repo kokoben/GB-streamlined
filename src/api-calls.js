@@ -17,7 +17,7 @@ export const requestVideo = id => ([
 export const requestSearchVideos = (keywords, page) => ([
   `https://www.giantbomb.com/api/search/?api_key=${apiKey}`,
   `&format=jsonp&json_callback=callback&query=${keywords}&resources=`,
-  `video&limit=100&field_list=deck,name,publish_date,image,user,video_type`,
+  `video&limit=100&field_list=id,deck,name,publish_date,image,user,video_type`,
   `&page=${page}`,
 ].join(''));
 

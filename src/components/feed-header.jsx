@@ -15,7 +15,7 @@ const FeedHeader = props => (
   >
     <Row>
       <Col span={8}>
-        Latest {props.category} Episodes
+        Latest {props.category} Episodes {props.currentResults.length}
       </Col>
       <Col span={6} offset={10}>
         <SearchBar
