@@ -32,8 +32,23 @@ export const homeVideos = (state = null, action) => {
   }
 };
 
+export const homeSearchResults = (state = [], action) => {
+  switch (action.type) {
+    case hActions.HOME_SEARCH_FETCH_SUCCESS:
+      console.log('home_search_fetch_success!');
+      return action.results;
+    case hActions.HOME_SEARCH_FETCH_FAIL:
+      console.log('home_search_fetch_fail!');
+      console.log(action.message);
+      break;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   homeVideo,
   homeVideos,
+  homeSearchResults,
 });
 /* eslint-enable */

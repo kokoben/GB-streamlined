@@ -8,7 +8,6 @@ import FeatureSearchResultsSelector from '../selectors/current-feature-search-re
 
 class FeatureFeedHeader extends Component {
   render() {
-    console.log('current feature search reuslts: ', this.props.currentFeatureSearchResults);
     return (
       <FeedHeader
         category="Feature"

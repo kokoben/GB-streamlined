@@ -20,3 +20,8 @@ export const setHomeVideos = (page, pageSize) => {
 export const setLatestHomeVideo = () => ({
   type: hActions.LATEST_HOME_VIDEO_SET,
 });
+
+export const fetchHomeSearchVideos = keywords => ({
+  type: hActions.HOME_SEARCH_FETCH,
+  keywords,
+});

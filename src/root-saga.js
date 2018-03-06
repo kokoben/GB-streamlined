@@ -2,6 +2,7 @@ import {
   watchSetHomeVideo,
   watchSetLatestHomeVideo,
   watchSetHomeVideos,
+  watchFetchHomeSearchVideos,
 } from './home/sagas';
 import {
   watchSetFeatureVideo,
@@ -27,17 +28,18 @@ export default function* rootSaga() {
     watchSetHomeVideo(),
     watchSetLatestHomeVideo(),
     watchSetHomeVideos(),
+    watchFetchHomeSearchVideos(),
     watchSetFeatureVideo(),
-    watchFetchFeatureSearchVideos(),
     watchSetLatestFeatureVideo(),
     watchSetFeatureVideos(),
+    watchFetchFeatureSearchVideos(),
     watchSetQuicklookVideo(),
-    watchFetchQuicklookSearchVideos(),
     watchSetLatestQuicklookVideo(),
     watchSetQuicklookVideos(),
+    watchFetchQuicklookSearchVideos(),
     watchSetBombcastVideo(),
-    watchFetchBombcastSearchVideos(),
     watchSetLatestBombcastVideo(),
     watchSetBombcastVideos(),
+    watchFetchBombcastSearchVideos(),
   ];
 }
