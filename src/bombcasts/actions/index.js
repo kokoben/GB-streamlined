@@ -14,3 +14,8 @@ export const setBombcastVideos = (page, pageSize) => ({
 export const setLatestBombcastVideo = () => ({
   type: bActions.LATEST_BOMBCAST_VIDEO_SET,
 });
+
+export const fetchBombcastSearchVideos = keywords => ({
+  type: bActions.BOMBCAST_SEARCH_FETCH,
+  keywords,
+});

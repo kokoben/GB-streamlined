@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import Moment from 'moment';
 
-const resultsSelector = state => state.features.featureSearchResults;
+const resultsSelector = state => state.bombcasts.bombcastSearchResults;
 const currentPageSelector = state => state.shared.currentSearchPage;
 
 const getResults = (results, page) => {
@@ -16,5 +16,6 @@ const getResults = (results, page) => {
 
   return currentList;
 };
+
 
 export default createSelector(resultsSelector, currentPageSelector, getResults);

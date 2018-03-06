@@ -19,6 +19,7 @@ import {
   watchSetBombcastVideo,
   watchSetLatestBombcastVideo,
   watchSetBombcastVideos,
+  watchFetchBombcastSearchVideos,
 } from './bombcasts/sagas';
 
 export default function* rootSaga() {
@@ -35,6 +36,7 @@ export default function* rootSaga() {
     watchSetLatestQuicklookVideo(),
     watchSetQuicklookVideos(),
     watchSetBombcastVideo(),
+    watchFetchBombcastSearchVideos(),
     watchSetLatestBombcastVideo(),
     watchSetBombcastVideos(),
   ];

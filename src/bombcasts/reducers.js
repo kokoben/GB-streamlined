@@ -27,9 +27,24 @@ export const bombcastVideos = (state = null, action) => {
       return state;
   }
 };
+
+export const bombcastSearchResults = (state = [], action) => {
+  switch (action.type) {
+    case bActions.BOMBCAST_SEARCH_FETCH_SUCCESS:
+      console.log('bombcast_sesarch_fetch_success!');
+      return action.results;
+    case bActions.BOMBCAST_SEARCH_FETCH_FAIL:
+      console.log('bombcast_seasrch_fetch_fail!');
+      console.log(action.message);
+      break;
+    default:
+      return state;
+  }
+};
 /* eslint-enable */
 
 export default combineReducers({
   bombcastVideo,
   bombcastVideos,
+  bombcastSearchResults,
 });
