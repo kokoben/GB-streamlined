@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -6,19 +6,15 @@ import FeedHeader from '../../components/feed-header';
 import { fetchFeatureSearchVideos, setFeatureVideo } from '../actions/index';
 import FeatureSearchResultsSelector from '../selectors/current-feature-search-results';
 
-class FeatureFeedHeader extends Component {
-  render() {
-    return (
-      <FeedHeader
-        category="Feature"
-        placeholder="Search for Feature videos..."
-        fetchVideos={this.props.fetchFeatureSearchVideos}
-        currentResults={this.props.currentFeatureSearchResults}
-        setVideo={this.props.setFeatureVideo}
-      />
-    );
-  }
-}
+const FeatureFeedHeader = props => (
+  <FeedHeader
+    category="Feature"
+    placeholder="Search for Feature videos..."
+    fetchVideos={props.fetchFeatureSearchVideos}
+    currentResults={props.currentFeatureSearchResults}
+    setVideo={props.setFeatureVideo}
+  />
+);
 
 /* eslint-disable react/forbid-prop-types */
 FeatureFeedHeader.propTypes = {

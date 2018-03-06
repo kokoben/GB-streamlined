@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -6,20 +6,15 @@ import FeedHeader from '../../components/feed-header';
 import { fetchBombcastSearchVideos, setBombcastVideo } from '../actions/index';
 import BombcastSearchResultsSelector from '../selectors/current-bombcast-search-results';
 
-class BombcastFeedHeader extends Component {
-  render() {
-    console.log('current feature search reuslts: ', this.props.currentBombcastSearchResults);
-    return (
-      <FeedHeader
-        category="Bombcast"
-        placeholder="Search for Bombcast videos..."
-        fetchVideos={this.props.fetchBombcastSearchVideos}
-        currentResults={this.props.currentBombcastSearchResults}
-        setVideo={this.props.setBombcastVideo}
-      />
-    );
-  }
-}
+const BombcastFeedHeader = props => (
+  <FeedHeader
+    category="Bombcast"
+    placeholder="Search for Bombcast videos..."
+    fetchVideos={props.fetchBombcastSearchVideos}
+    currentResults={props.currentBombcastSearchResults}
+    setVideo={props.setBombcastVideo}
+  />
+);
 
 /* eslint-disable react/forbid-prop-types */
 BombcastFeedHeader.propTypes = {
