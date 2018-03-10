@@ -23,7 +23,6 @@ class SearchBar extends Component {
     this.handleSearch = _.debounce(this.handleSearch, 450);
   }
 
-
   handleChange(value) {
     this.setState({
       value,

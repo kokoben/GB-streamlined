@@ -8,7 +8,10 @@ const SearchLink = props => (
     <div
       role="button"
       tabIndex={0}
-      onClick={() => props.navLink(props.currentSearchPage - 1)}
+      onClick={(e) => {
+        props.navLink(props.currentSearchPage - 1);
+        e.stopPropagation();
+      }}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
           props.navLink(props.currentSearchPage - 1);
@@ -22,7 +25,10 @@ const SearchLink = props => (
     <div
       role="button"
       tabIndex={0}
-      onClick={() => props.navLink(props.currentSearchPage + 1)}
+      onClick={(e) => {
+        props.navLink(props.currentSearchPage + 1);
+        e.stopPropagation();
+      }}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
           props.navLink(props.currentSearchPage + 1);
