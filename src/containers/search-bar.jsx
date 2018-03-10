@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Select } from 'antd';
 import _ from 'lodash';
-import { setSearchSpinner } from '../actions/index';
+import SearchLink from '../components/search-link';
+import { setSearchSpinner, setSearchPage } from '../actions/index';
 
 const Option = Select.Option;
 
@@ -13,6 +14,7 @@ class SearchBar extends Component {
     super(props);
 
     this.state = {
+      value: '',
       query: '',
     };
 
@@ -21,9 +23,10 @@ class SearchBar extends Component {
     this.handleSearch = _.debounce(this.handleSearch, 450);
   }
 
+
   handleChange(value) {
     this.setState({
-      query: value,
+      value,
     });
     this.props.setSearchSpinner(true);
   }
@@ -36,10 +39,13 @@ class SearchBar extends Component {
   render() {
     const results = this.props.currentResults.map(result => (
       <Option
+        filler={this.state.query}
         key={result.name}
         style={{ lineHeight: '22px' }}
       >
         <div
+          role="button"
+          tabIndex={0}
           onClick={() => this.props.setVideo(result.id)}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
@@ -74,42 +80,74 @@ class SearchBar extends Component {
       </Option>
     ));
 
+    const prev = (
+      <Option filler={this.state.query} key="previous">
+        <SearchLink
+          currentSearchPage={this.props.currentSearchPage}
+          navDirection="previous"
+          navLink={this.props.setSearchPage}
+        />
+      </Option>
+    );
+
+    const next = (
+      <Option filler={this.state.query} key="next">
+        <SearchLink
+          currentSearchPage={this.props.currentSearchPage}
+          navDirection="next"
+          navLink={this.props.setSearchPage}
+        />
+      </Option>
+    );
+
     return (
       <Select
         mode="combobox"
-        value={this.state.query}
+        value={this.state.value}
         style={{ width: '100%' }}
         placeholder={this.props.placeholder}
         defaultActiveFirstOption={false}
+        optionLabelProp="filler"
         filterOption={false}
         notFoundContent={
-          this.state.query !== '' ? 'we got nothin\' for you bruh' : null
+          this.state.value !== '' ? 'we got nothin\' for you bruh' : null
         }
         onChange={this.handleChange}
         onSearch={this.handleSearch}
       >
+        {this.props.currentSearchPage === 1 || this.props.currentSearchPage === null ?
+          null : prev
+        }
         {results}
+        {this.props.currentResults.length < 8 ?
+          null : next
+        }
       </Select>
     );
   }
 }
 
+/* eslint-disable react/forbid-prop-types */
 SearchBar.propTypes = {
   placeholder: PropTypes.string.isRequired,
   fetchVideos: PropTypes.func.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
+  setVideo: PropTypes.func.isRequired,
   currentResults: PropTypes.array.isRequired,
   setSearchSpinner: PropTypes.func.isRequired,
-  setVideo: PropTypes.func.isRequired,
+  currentSearchPage: PropTypes.number.isRequired,
+  setSearchPage: PropTypes.func.isRequired,
 };
+/* eslint-enable */
 
 const mapStateToProps = state => ({
-  searchSpinnerOn: state.searchSpinnerOn,
+  currentSearchPage: state.shared.currentSearchPage,
+  searchSpinnerOn: state.shared.searchSpinnerOn,
 });
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
     setSearchSpinner,
+    setSearchPage,
   }, dispatch)
 );
 

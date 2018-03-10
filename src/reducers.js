@@ -8,6 +8,7 @@ import * as bActions from './bombcasts/actions/types';
 /* eslint-disable consisten-return */
 export const currentSearchPage = (state = null, action) => {
   switch (action.type) {
+    case sharedActions.SEARCH_PAGE_SET:
     case hActions.HOME_SEARCH_FETCH_SUCCESS:
     case qlActions.QUICKLOOK_SEARCH_FETCH_SUCCESS:
     case fActions.FEATURE_SEARCH_FETCH_SUCCESS:

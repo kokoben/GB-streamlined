@@ -1,1 +1,2 @@
 export const SEARCH_SPINNER_SET = 'SEARCH_SPINNER_SET';
+export const SEARCH_PAGE_SET = 'SEARCH_PAGE_SET';
