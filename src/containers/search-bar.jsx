@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Select } from 'antd';
 import _ from 'lodash';
+import ReactDOM from 'react-dom';
 import SearchLink from '../components/search-link';
 import { setSearchSpinner, setSearchPage } from '../actions/index';
 
@@ -23,6 +24,11 @@ class SearchBar extends Component {
     this.handleSearch = _.debounce(this.handleSearch, 450);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentSearchPage !== this.props.currentSearchPage) {
+      ReactDOM.findDOMNode(this).scrollTop = 0;
+    }
+  }
   handleChange(value) {
     this.setState({
       value,
@@ -36,7 +42,7 @@ class SearchBar extends Component {
   }
 
   render() {
-    const results = this.props.currentResults.map(result => (
+    let results = this.props.currentResults.map(result => (
       <Option
         filler={this.state.query}
         key={result.name}
@@ -99,6 +105,14 @@ class SearchBar extends Component {
       </Option>
     );
 
+    if (this.props.currentSearchPage !== 1 && this.props.currentSearchPage !== null) {
+      results = [prev, ...results];
+    }
+
+    if (this.props.currentResults.length >= 8) {
+      results = [...results, next];
+    }
+
     return (
       <Select
         mode="combobox"
@@ -114,13 +128,7 @@ class SearchBar extends Component {
         onChange={this.handleChange}
         onSearch={this.handleSearch}
       >
-        {this.props.currentSearchPage === 1 || this.props.currentSearchPage === null ?
-          null : prev
-        }
         {results}
-        {this.props.currentResults.length < 8 ?
-          null : next
-        }
       </Select>
     );
   }

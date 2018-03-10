@@ -15,6 +15,7 @@ const SearchLink = props => (
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
           props.navLink(props.currentSearchPage - 1);
+          e.stopPropagation();
         }
       }}
     >
@@ -32,6 +33,7 @@ const SearchLink = props => (
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
           props.navLink(props.currentSearchPage + 1);
+          e.stopPropagation();
         }
       }}
     >
