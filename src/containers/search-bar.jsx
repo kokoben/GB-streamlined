@@ -4,10 +4,10 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Select } from 'antd';
 import _ from 'lodash';
-import ReactDOM from 'react-dom';
 import SearchLink from '../components/search-link';
 import { setSearchSpinner, setSearchPage } from '../actions/index';
 
+// eslint-disable-next-line prefer-destructuring
 const Option = Select.Option;
 
 class SearchBar extends Component {
@@ -16,7 +16,6 @@ class SearchBar extends Component {
 
     this.state = {
       value: '',
-      query: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,11 +23,6 @@ class SearchBar extends Component {
     this.handleSearch = _.debounce(this.handleSearch, 450);
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.currentSearchPage !== this.props.currentSearchPage) {
-      ReactDOM.findDOMNode(this).scrollTop = 0;
-    }
-  }
   handleChange(value) {
     this.setState({
       value,
@@ -37,24 +31,26 @@ class SearchBar extends Component {
   }
 
   handleSearch(value) {
-    this.setState({ query: value });
     this.props.fetchVideos(value);
   }
 
   render() {
     let results = this.props.currentResults.map(result => (
       <Option
-        filler={this.state.query}
         key={result.name}
         style={{ lineHeight: '22px' }}
       >
         <div
           role="button"
-          tabIndex={0}
-          onClick={() => this.props.setVideo(result.id)}
+          tabIndex="0"
+          onClick={(e) => {
+            this.props.setVideo(result.id);
+            e.stopPropagation();
+          }}
           onKeyDown={(e) => {
-            if (e.key === 'Enter') {
+            if (e.keyCode === 13) {
               this.props.setVideo(result.id);
+              e.stopPropagation();
             }
           }}
         >
@@ -86,7 +82,7 @@ class SearchBar extends Component {
     ));
 
     const prev = (
-      <Option filler={this.state.query} key="previous">
+      <Option key="previous">
         <SearchLink
           currentSearchPage={this.props.currentSearchPage}
           navDirection="previous"
@@ -96,7 +92,7 @@ class SearchBar extends Component {
     );
 
     const next = (
-      <Option filler={this.state.query} key="next">
+      <Option key="next">
         <SearchLink
           currentSearchPage={this.props.currentSearchPage}
           navDirection="next"
@@ -120,7 +116,6 @@ class SearchBar extends Component {
         style={{ width: '100%' }}
         placeholder={this.props.placeholder}
         defaultActiveFirstOption={false}
-        optionLabelProp="filler"
         filterOption={false}
         notFoundContent={
           this.state.value !== '' ? 'we got nothin\' for you bruh' : null

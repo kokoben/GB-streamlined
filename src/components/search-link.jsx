@@ -9,13 +9,13 @@ const SearchLink = props => (
       role="button"
       tabIndex={0}
       onClick={(e) => {
-        props.navLink(props.currentSearchPage - 1);
         e.stopPropagation();
+        props.navLink(props.currentSearchPage - 1);
       }}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
-          props.navLink(props.currentSearchPage - 1);
           e.stopPropagation();
+          props.navLink(props.currentSearchPage - 1);
         }
       }}
     >
@@ -27,13 +27,13 @@ const SearchLink = props => (
       role="button"
       tabIndex={0}
       onClick={(e) => {
-        props.navLink(props.currentSearchPage + 1);
         e.stopPropagation();
+        props.navLink(props.currentSearchPage + 1);
       }}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
-          props.navLink(props.currentSearchPage + 1);
           e.stopPropagation();
+          props.navLink(props.currentSearchPage + 1);
         }
       }}
     >
