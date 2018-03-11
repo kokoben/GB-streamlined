@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Card } from 'antd';
 import PropTypes from 'prop-types';
+import Moment from 'moment';
 
 const { Meta } = Card;
 
@@ -20,7 +21,9 @@ const VideoRow = props => (
             title={video.name}
             description={
               <div>
-                <p>Posted by {video.user} | {video.publish_date}</p>
+                <p>Posted by {video.user} |
+                  &thinsp;{Moment(video.publish_date).format('MMM. D, YYYY h:mma')}
+                </p>
                 <p>{video.deck}</p>
               </div>
             }

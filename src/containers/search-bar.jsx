@@ -39,6 +39,7 @@ class SearchBar extends Component {
       <Option
         key={result.name}
         style={{ lineHeight: '22px' }}
+        tabIndex="0"
       >
         <div
           role="button"
@@ -47,7 +48,8 @@ class SearchBar extends Component {
             this.props.setVideo(result.id);
             e.stopPropagation();
           }}
-          onKeyDown={(e) => {
+          onKeyUp={(e) => {
+            console.log('KEYDOWN EVENT FIERIJEKLJFKLEJD');
             if (e.keyCode === 13) {
               this.props.setVideo(result.id);
               e.stopPropagation();
