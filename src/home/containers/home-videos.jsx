@@ -12,15 +12,11 @@ class HomeVideos extends Component {
 
   render() {
     if (this.props.homeVideos === null) return null;
-    const numRows = Math.ceil(this.props.homeVideos.number_of_page_results / 4);
 
     return (
       <Videos
         results={this.props.homeVideos.results}
         num_results={this.props.homeVideos.number_of_total_results}
-        num_page_results={this.props.homeVideos.number_of_page_results}
-        num_rows={numRows}
-        category=""
         onCardClick={this.props.setHomeVideo}
         onClickPageNum={this.props.setHomeVideos}
       />

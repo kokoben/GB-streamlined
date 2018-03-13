@@ -8,14 +8,14 @@ const { Header } = Layout;
 const FeedHeader = props => (
   <Header
     style={{
-      background: '#fff',
-      margin: '0 auto',
+      background: '#282B2D',
+      margin: '25px auto',
       padding: '0',
     }}
   >
     <Row>
       <Col span={8}>
-        Latest {props.category} Episodes
+        <span style={{ paddingLeft: '10px' }}>Latest {props.category} Episodes</span>
       </Col>
       <Col span={6} offset={10}>
         <SearchBar

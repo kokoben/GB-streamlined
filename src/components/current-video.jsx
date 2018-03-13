@@ -7,7 +7,7 @@ const CurrentVideo = (props) => {
   const pubDateFormatted = Moment(props.pub_date).format('MMM. D, YYYY h:mma');
 
   return (
-    <div style={{ margin: '0 auto', width: '80%' }}>
+    <div style={{ background: '#000', margin: '0 auto', width: '80%' }}>
       <Row type="flex" justify="space-around">
         <Col span={8}>
           <p>{props.name}</p>

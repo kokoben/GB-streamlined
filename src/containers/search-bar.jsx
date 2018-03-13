@@ -115,7 +115,7 @@ class SearchBar extends Component {
       <Select
         mode="combobox"
         value={this.state.value}
-        style={{ width: '100%' }}
+        style={{ width: '100%', padding: '0 10px' }}
         placeholder={this.props.placeholder}
         defaultActiveFirstOption={false}
         filterOption={false}

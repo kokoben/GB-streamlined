@@ -12,15 +12,11 @@ class BombcastVideos extends Component {
 
   render() {
     if (this.props.bombcastVideos === null) return null;
-    const numRows = Math.ceil(this.props.bombcastVideos.number_of_page_results / 4);
 
     return (
       <Videos
         results={this.props.bombcastVideos.results}
         num_results={this.props.bombcastVideos.number_of_total_results}
-        num_page_results={this.props.bombcastVideos.number_of_page_results}
-        num_rows={numRows}
-        category="Bombcast"
         onCardClick={this.props.setBombcastVideo}
         onClickPageNum={this.props.setBombcastVideos}
       />

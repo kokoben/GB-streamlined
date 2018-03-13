@@ -12,15 +12,11 @@ class FeatureVideos extends Component {
 
   render() {
     if (this.props.featureVideos === null) return null;
-    const numRows = Math.ceil(this.props.featureVideos.number_of_page_results / 4);
 
     return (
       <Videos
         results={this.props.featureVideos.results}
         num_results={this.props.featureVideos.number_of_total_results}
-        num_page_results={this.props.featureVideos.number_of_page_results}
-        num_rows={numRows}
-        category="Feature"
         onCardClick={this.props.setFeatureVideo}
         onClickPageNum={this.props.setFeatureVideos}
       />
