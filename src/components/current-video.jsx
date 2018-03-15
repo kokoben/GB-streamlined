@@ -7,21 +7,23 @@ const CurrentVideo = (props) => {
   const pubDateFormatted = Moment(props.pub_date).format('MMM. D, YYYY h:mma');
 
   return (
-    <div style={{ background: '#000', margin: '0 auto', width: '80%' }}>
-      <Row type="flex" justify="space-around">
+    <div style={{ background: '#000', margin: '0 auto', width: '100%' }}>
+      <Row type="flex" justify="center">
         <Col span={8}>
-          <p>{props.name}</p>
-          <p> Posted by {props.user} | {pubDateFormatted}</p>
-          <p>{props.deck}</p>
+          <div style={{ padding: '16px' }}>
+            <p>{props.name}</p>
+            <p><i> Posted by {props.user} | {pubDateFormatted}</i></p>
+            <p>{props.deck}</p>
+          </div>
         </Col>
-        <Col span={16}>
-          <iframe
-            allowFullScreen
-            title="Current Video"
-            src={props.embed_player}
-            width="640"
-            height="360"
-          />
+        <Col span={16} >
+          <div className="intrinsic-container intrinsic-container-16x9">
+            <iframe
+              allowFullScreen
+              title="Current Video"
+              src={props.embed_player}
+            />
+          </div>
         </Col>
       </Row>
     </div>

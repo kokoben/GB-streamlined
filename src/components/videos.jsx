@@ -7,7 +7,7 @@ const { Meta } = Card;
 
 const VideosRow = props => (
   props.results.map(video => (
-    <Col xs={24} sm={11} md={6} lg={6} xl={6}>
+    <Col xs={24} sm={12} md={6} lg={6} xl={6}>
       <div style={{ margin: 16 }}>
         <Card
           onClick={() => props.onCardClick(video.id)}
