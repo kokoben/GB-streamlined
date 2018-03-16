@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout, Row, Col } from 'antd';
 import PropTypes from 'prop-types';
 import SearchBar from '../containers/search-bar';
+import { XS, SM, MD, LG, XL, XXL } from '../media-queries';
 
 const { Header } = Layout;
 
@@ -9,15 +10,33 @@ const FeedHeader = props => (
   <Header
     style={{
       background: '#282B2D',
+      color: '#fff',
       margin: '25px auto',
       padding: '0',
     }}
   >
     <Row>
-      <Col span={8}>
-        <span style={{ paddingLeft: '10px' }}>Latest {props.category} Episodes</span>
+      <Col md={{ span: 8 }}>
+        <XS>
+          <div style={{ textAlign: 'center' }}>Latest {props.category} Episodes</div>
+        </XS>
+        <SM>
+          <div style={{ textAlign: 'center' }}>Latest {props.category} Episodes</div>
+        </SM>
+        <MD>
+          <span style={{ paddingLeft: '10px' }}>Latest {props.category} Episodes</span>
+        </MD>
+        <LG>
+          <span style={{ paddingLeft: '10px' }}>Latest {props.category} Episodes</span>
+        </LG>
+        <XL>
+          <span style={{ paddingLeft: '10px' }}>Latest {props.category} Episodes</span>
+        </XL>
+        <XXL>
+          <span style={{ paddingLeft: '10px' }}>Latest {props.category} Episodes</span>
+        </XXL>
       </Col>
-      <Col span={6} offset={10}>
+      <Col md={{ span: 8, offset: 8 }}>
         <SearchBar
           placeholder={props.placeholder}
           fetchVideos={props.fetchVideos}

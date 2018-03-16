@@ -10,7 +10,7 @@ const CurrentVideo = (props) => {
     <div style={{ background: '#000', margin: '0 auto', width: '100%' }}>
       <Row type="flex" justify="center">
         <Col span={8}>
-          <div style={{ padding: '16px' }}>
+          <div style={{ padding: '16px', color: '#fff' }}>
             <p>{props.name}</p>
             <p><i> Posted by {props.user} | {pubDateFormatted}</i></p>
             <p>{props.deck}</p>
