@@ -31,8 +31,8 @@ const Content = () => (
     <XS><Inside width="100%" /></XS>
     <SM><Inside width="100%" /></SM>
     <MD><Inside width="740px" /></MD>
-    <LG><Inside width="740px" /></LG>
-    <XL><Inside width="940px" /></XL>
+    <LG><Inside width="940px" /></LG>
+    <XL><Inside width="1160px" /></XL>
     <XXL><Inside width="1160px" /></XXL>
   </div>
 );
