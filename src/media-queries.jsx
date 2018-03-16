@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 import Responsive from 'react-responsive';
 
 export const XXL = props => (
-  <Responsive minWidth={1200}>
+  <Responsive minWidth={1600}>
     {props.children}
   </Responsive>
 );
 
 export const XL = props => (
-  <Responsive minWidth={992} maxWidth={1199}>
+  <Responsive minWidth={1200} maxWidth={1599}>
     {props.children}
   </Responsive>
 );
 
 export const LG = props => (
-  <Responsive minWidth={769} maxWidth={991}>
+  <Responsive minWidth={992} maxWidth={1199}>
     {props.children}
   </Responsive>
 );
