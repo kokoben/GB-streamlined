@@ -2,10 +2,10 @@ import React from 'react';
 import { Layout } from 'antd';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Home from '../../home/components/home';
-import Quicklooks from '../../quicklooks/components/quicklooks';
-import Bombcasts from '../../bombcasts/components/bombcasts';
-import Features from '../../features/components/features';
+import Home from '../../home/containers/home';
+import Quicklooks from '../../quicklooks/containers/quicklooks';
+import Bombcasts from '../../bombcasts/containers/bombcasts';
+import Features from '../../features/containers/features';
 import { XS, SM, MD, LG, XL, XXL } from '../../media-queries';
 
 const Inside = props => (
