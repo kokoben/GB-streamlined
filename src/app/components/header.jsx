@@ -86,7 +86,7 @@ const BurgerMenu = props => (
   <Layout.Header>
     <Layout.Header style={{ width: props.width, margin: '0 auto' }}>
       <Burger />
-      <div className="logo-right" />
+      <img src={Logo} alt="GB-Streamlined" className="logo-right" />
     </Layout.Header>
   </Layout.Header>
 );
