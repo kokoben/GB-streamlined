@@ -20,7 +20,9 @@ const SearchLink = props => (
       }}
     >
       <Icon type="up-square-o" />
-      See previous results
+      <span style={{ paddingLeft: '5px' }}>
+        See previous results
+      </span>
     </div>
   ) : (
     <div
@@ -37,7 +39,9 @@ const SearchLink = props => (
         }
       }}
     >
-      See more results
+      <span style={{ paddingRight: '5px' }}>
+        See more results
+      </span>
       <Icon type="down-square-o" />
     </div>
   )

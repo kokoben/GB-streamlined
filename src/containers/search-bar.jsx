@@ -49,7 +49,6 @@ class SearchBar extends Component {
             e.stopPropagation();
           }}
           onKeyUp={(e) => {
-            console.log('KEYDOWN EVENT FIERIJEKLJFKLEJD');
             if (e.keyCode === 13) {
               this.props.setVideo(result.id);
               e.stopPropagation();

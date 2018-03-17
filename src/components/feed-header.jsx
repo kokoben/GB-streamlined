@@ -11,7 +11,6 @@ const FeedHeader = props => (
     style={{
       background: '#282B2D',
       color: '#fff',
-      margin: '25px auto',
       padding: '0',
     }}
   >
@@ -24,16 +23,16 @@ const FeedHeader = props => (
           <div style={{ textAlign: 'center' }}>Latest {props.category} Episodes</div>
         </SM>
         <MD>
-          <span style={{ paddingLeft: '10px' }}>Latest {props.category} Episodes</span>
+          <span style={{ paddingLeft: '25px' }}>Latest {props.category} Episodes</span>
         </MD>
         <LG>
-          <span style={{ paddingLeft: '10px' }}>Latest {props.category} Episodes</span>
+          <span style={{ paddingLeft: '25px' }}>Latest {props.category} Episodes</span>
         </LG>
         <XL>
-          <span style={{ paddingLeft: '10px' }}>Latest {props.category} Episodes</span>
+          <span style={{ paddingLeft: '25px' }}>Latest {props.category} Episodes</span>
         </XL>
         <XXL>
-          <span style={{ paddingLeft: '10px' }}>Latest {props.category} Episodes</span>
+          <span style={{ paddingLeft: '25px' }}>Latest {props.category} Episodes</span>
         </XXL>
       </Col>
       <Col md={{ span: 8, offset: 8 }}>
