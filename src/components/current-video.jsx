@@ -15,7 +15,7 @@ const Mini = props => (
       <iframe
         frameBorder={0}
         allowFullScreen
-        title="Current Video"
+        title={props.name}
         src={props.embed_player}
       />
     </div>
@@ -37,7 +37,7 @@ const Full = props => (
           <iframe
             frameBorder={0}
             allowFullScreen
-            title="Current Video"
+            title={props.name}
             src={props.embed_player}
           />
         </div>

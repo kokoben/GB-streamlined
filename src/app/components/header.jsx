@@ -3,7 +3,9 @@ import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { slide as Slide } from 'react-burger-menu';
 import PropTypes from 'prop-types';
+import Logo from '../../images/logo.png';
 import { XS, SM, MD, LG, XL, XXL } from '../../media-queries';
+
 
 // get current location to set default selected menu key
 // eslint-disable-next-line no-undef
@@ -14,7 +16,7 @@ href = href[3];
 const FullMenu = props => (
   <Layout.Header>
     <Layout.Header style={{ width: props.width, margin: '0 auto' }}>
-      <div className="logo" />
+      <img src={Logo} alt="GB-Streamlined" className="logo" />
       <Menu
         theme="dark"
         mode="horizontal"
@@ -94,8 +96,8 @@ const Header = () => (
     <XS><BurgerMenu width="100%" /></XS>
     <SM><BurgerMenu width="100%" /></SM>
     <MD><FullMenu width="740px" /></MD>
-    <LG><FullMenu width="740px" /></LG>
-    <XL><FullMenu width="940px" /></XL>
+    <LG><FullMenu width="940px" /></LG>
+    <XL><FullMenu width="1160px" /></XL>
     <XXL><FullMenu width="1160px" /></XXL>
   </div>
 );
