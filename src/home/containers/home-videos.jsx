@@ -28,7 +28,7 @@ class HomeVideos extends Component {
 HomeVideos.propTypes = {
   setHomeVideo: PropTypes.func.isRequired,
   setHomeVideos: PropTypes.func.isRequired,
-  homeVideos: PropTypes.object.isRequired,
+  homeVideos: PropTypes.object,
 };
 /* eslint-enable */
 

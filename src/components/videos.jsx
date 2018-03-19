@@ -7,11 +7,10 @@ const { Meta } = Card;
 
 const VideosRow = props => (
   props.results.map(video => (
-    <Col xs={24} sm={12} md={6} lg={6} xl={6}>
+    <Col key={video.id} xs={24} sm={12} md={6} lg={6} xl={6}>
       <div style={{ margin: 16 }}>
         <Card
           onClick={() => props.onCardClick(video.id)}
-          key={video.id}
           bordered={false}
           hoverable
           cover={<img alt={video.image.name} src={video.image.super_url} />}

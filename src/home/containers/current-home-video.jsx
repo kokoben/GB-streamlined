@@ -28,7 +28,7 @@ class CurrentHomeVideo extends Component {
 /* eslint-disable react/forbid-prop-types */
 CurrentHomeVideo.propTypes = {
   setLatestHomeVideo: PropTypes.func.isRequired,
-  homeVideo: PropTypes.object.isRequired,
+  homeVideo: PropTypes.object,
 };
 /* eslint-enable */
 

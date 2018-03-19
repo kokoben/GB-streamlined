@@ -1,19 +1,17 @@
 import React from 'react';
 import { Layout } from 'antd';
 import { Route } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Home from '../../home/containers/home';
 import Quicklooks from '../../quicklooks/containers/quicklooks';
 import Bombcasts from '../../bombcasts/containers/bombcasts';
 import Features from '../../features/containers/features';
-import { XS, SM, MD, LG, XL, XXL } from '../../media-queries';
 
-const Inside = props => (
+const Content = () => (
   <Layout.Content
+    className="content"
     style={{
       background: '#fff',
       padding: '10px 10px',
-      width: props.width,
       margin: '0 auto 50px',
     }}
   >
@@ -25,20 +23,5 @@ const Inside = props => (
     </main>
   </Layout.Content>
 );
-
-const Content = () => (
-  <div>
-    <XS><Inside width="100%" /></XS>
-    <SM><Inside width="100%" /></SM>
-    <MD><Inside width="740px" /></MD>
-    <LG><Inside width="940px" /></LG>
-    <XL><Inside width="1160px" /></XL>
-    <XXL><Inside width="1160px" /></XXL>
-  </div>
-);
-
-Inside.propTypes = {
-  width: PropTypes.string.isRequired,
-};
 
 export default Content;

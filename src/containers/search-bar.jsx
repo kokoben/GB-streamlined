@@ -137,7 +137,7 @@ SearchBar.propTypes = {
   setVideo: PropTypes.func.isRequired,
   currentResults: PropTypes.array.isRequired,
   setSearchSpinner: PropTypes.func.isRequired,
-  currentSearchPage: PropTypes.number.isRequired,
+  currentSearchPage: PropTypes.number,
   setSearchPage: PropTypes.func.isRequired,
 };
 /* eslint-enable */
