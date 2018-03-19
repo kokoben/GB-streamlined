@@ -8,9 +8,10 @@ const { Header } = Layout;
 const FeedHeader = props => (
   <Header
     style={{
-      background: '#282B2D',
       color: '#fff',
-      padding: '0',
+      borderBottomWidth: '2px',
+      borderBottomColor: '#981616',
+      borderBottomStyle: 'solid',
     }}
   >
     <Row>

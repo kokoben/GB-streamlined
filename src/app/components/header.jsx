@@ -12,14 +12,26 @@ href = href[3];
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const FullMenu = () => (
-  <Layout.Header className="menu-full-header">
+  <Layout.Header
+    className="menu-full-header"
+    style={{
+      borderBottomWidth: '2px',
+      borderBottomColor: '#981616',
+      borderBottomStyle: 'solid',
+    }}
+  >
     <Layout.Header className="menu-full" style={{ margin: '0 auto' }}>
       <img src={Logo} alt="GB-Streamlined" className="logo" />
       <Menu
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={[`/${href}`]}
-        style={{ lineHeight: '64px' }}
+        style={{
+          lineHeight: '62px',
+          borderBottomWidth: '2px',
+          borderBottomColor: '#981616',
+          borderBottomStyle: 'solid',
+        }}
       >
         <Menu.Item key="/">
           <Link to="/">Home</Link>
