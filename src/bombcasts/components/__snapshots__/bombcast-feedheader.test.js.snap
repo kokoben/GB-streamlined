@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`bombcast-feedheader tests renders correctly 1`] = `
+<FeedHeader
+  category="Bombcast"
+  currentResults={Array []}
+  fetchVideos={[Function]}
+  placeholder="Search for Bombcast videos..."
+  setVideo={[Function]}
+/>
+`;

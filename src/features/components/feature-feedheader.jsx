@@ -6,7 +6,7 @@ import FeedHeader from '../../components/feed-header';
 import { fetchFeatureSearchVideos, setFeatureVideo } from '../actions/index';
 import FeatureSearchResultsSelector from '../selectors/current-feature-search-results';
 
-const FeatureFeedHeader = props => (
+export const FeatureFeedHeader = props => (
   <FeedHeader
     category="Feature"
     placeholder="Search for Feature videos..."

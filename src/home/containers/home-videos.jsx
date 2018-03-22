@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import Videos from '../../components/videos';
 import { setHomeVideo, setHomeVideos } from '../actions';
 
-class HomeVideos extends Component {
+export class HomeVideos extends Component {
   componentDidMount() {
     this.props.setHomeVideos(1, 24);
   }

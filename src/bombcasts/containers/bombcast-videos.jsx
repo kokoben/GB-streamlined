@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Videos from '../../components/videos';
 import { setBombcastVideo, setBombcastVideos } from '../actions';
 
-class BombcastVideos extends Component {
+export class BombcastVideos extends Component {
   componentDidMount() {
     this.props.setBombcastVideos(1, 24);
   }

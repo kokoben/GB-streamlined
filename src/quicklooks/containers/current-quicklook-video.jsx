@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { setLatestQuicklookVideo } from '../actions';
 import CurrentVideo from '../../components/current-video';
 
-class CurrentQuicklookVideo extends Component {
+export class CurrentQuicklookVideo extends Component {
   componentDidMount() {
     this.props.setLatestQuicklookVideo();
   }

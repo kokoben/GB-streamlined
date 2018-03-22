@@ -6,7 +6,7 @@ import FeedHeader from '../../components/feed-header';
 import { fetchBombcastSearchVideos, setBombcastVideo } from '../actions/index';
 import BombcastSearchResultsSelector from '../selectors/current-bombcast-search-results';
 
-const BombcastFeedHeader = props => (
+export const BombcastFeedHeader = props => (
   <FeedHeader
     category="Bombcast"
     placeholder="Search for Bombcast videos..."

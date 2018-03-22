@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<CurrentVideo
+  deck="deck"
+  embed_player="embed_player"
+  name="name"
+  pub_date="pub_date"
+  user="user"
+/>
+`;

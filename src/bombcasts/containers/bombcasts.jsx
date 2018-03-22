@@ -7,7 +7,7 @@ import BombcastVideos from '../containers/bombcast-videos';
 import BombcastFeedHeader from '../components/bombcast-feedheader';
 import { setSearchPage } from '../../actions/index';
 
-class Bombcasts extends Component {
+export class Bombcasts extends Component {
   componentDidMount() {
     this.props.setSearchPage(null);
   }

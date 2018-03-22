@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import Videos from '../../components/videos';
 import { setQuicklookVideo, setQuicklookVideos } from '../actions';
 
-class QuicklookVideos extends Component {
+export class QuicklookVideos extends Component {
   componentDidMount() {
     this.props.setQuicklookVideos(1, 24);
   }

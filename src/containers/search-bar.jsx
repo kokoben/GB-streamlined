@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Select } from 'antd';
-import _ from 'lodash';
+import debounce from 'lodash.debounce';
 import SearchLink from '../components/search-link';
 import { setSearchSpinner, setSearchPage } from '../actions/index';
 
 // eslint-disable-next-line prefer-destructuring
 const Option = Select.Option;
 
-class SearchBar extends Component {
+export class SearchBar extends Component {
   constructor(props) {
     super(props);
 
@@ -20,7 +20,7 @@ class SearchBar extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleSearch = _.debounce(this.handleSearch, 450);
+    this.handleSearch = debounce(this.handleSearch, 450);
   }
 
   handleChange(value) {

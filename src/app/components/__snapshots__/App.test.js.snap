@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <Adapter
+    className="layout"
+  >
+    <Header
+      className="header"
+    />
+    <Content
+      className="content"
+    />
+    <Footer
+      cassName="footer"
+    />
+  </Adapter>
+</div>
+`;

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Videos from '../../components/videos';
 import { setFeatureVideo, setFeatureVideos } from '../actions';
 
-class FeatureVideos extends Component {
+export class FeatureVideos extends Component {
   componentDidMount() {
     this.props.setFeatureVideos(1, 24);
   }

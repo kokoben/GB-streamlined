@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`quicklook-feedheader tests renders correctly 1`] = `
+<FeedHeader
+  category="Quicklook"
+  currentResults={Array []}
+  fetchVideos={[Function]}
+  placeholder="Search for Quick Look videos..."
+  setVideo={[Function]}
+/>
+`;

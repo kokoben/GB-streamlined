@@ -7,7 +7,7 @@ import FeatureVideos from '../containers/feature-videos';
 import FeatureFeedHeader from '../components/feature-feedheader';
 import { setSearchPage } from '../../actions/index';
 
-class Features extends Component {
+export class Features extends Component {
   componentDidMount() {
     this.props.setSearchPage(null);
   }

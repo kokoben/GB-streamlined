@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search bar tests renders correctly 1`] = `
+<Select
+  choiceTransitionName="zoom"
+  defaultActiveFirstOption={false}
+  filterOption={false}
+  mode="combobox"
+  notFoundContent={null}
+  onChange={[Function]}
+  onSearch={[Function]}
+  placeholder="placeholder"
+  prefixCls="ant-select"
+  showSearch={false}
+  style={
+    Object {
+      "padding": "0 10px",
+      "width": "100%",
+    }
+  }
+  transitionName="slide-up"
+  value=""
+>
+  <Option
+    key="previous"
+  >
+    <Connect(SearchLink)
+      navDirection="previous"
+      navLink={[Function]}
+    />
+  </Option>
+</Select>
+`;

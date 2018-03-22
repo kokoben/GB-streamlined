@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import CurrentVideo from '../../components/current-video';
 import { setLatestBombcastVideo } from '../actions';
 
-class CurrentBombcastVideo extends Component {
+export class CurrentBombcastVideo extends Component {
   componentDidMount() {
     this.props.setLatestBombcastVideo();
   }

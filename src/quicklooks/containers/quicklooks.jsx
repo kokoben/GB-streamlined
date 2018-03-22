@@ -7,7 +7,7 @@ import CurrentQuicklookVideo from '../containers/current-quicklook-video';
 import QuicklookFeedHeader from '../components/quicklook-feedheader';
 import { setSearchPage } from '../../actions/index';
 
-class Quicklooks extends Component {
+export class Quicklooks extends Component {
   componentDidMount() {
     this.props.setSearchPage(null);
   }

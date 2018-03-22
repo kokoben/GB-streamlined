@@ -6,7 +6,7 @@ import FeedHeader from '../../components/feed-header';
 import { fetchHomeSearchVideos, setHomeVideo } from '../actions/index';
 import HomeSearchResultsSelector from '../selectors/current-home-search-results';
 
-const HomeFeedHeader = props => (
+export const HomeFeedHeader = props => (
   <FeedHeader
     category=""
     placeholder="Search for videos..."

@@ -7,7 +7,7 @@ import HomeVideos from '../containers/home-videos';
 import HomeFeedHeader from '../components/home-feedheader';
 import { setSearchPage } from '../../actions/index';
 
-class Home extends Component {
+export class Home extends Component {
   componentDidMount() {
     this.props.setSearchPage(null);
   }

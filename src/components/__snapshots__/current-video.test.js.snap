@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  style={
+    Object {
+      "background": "#000",
+      "margin": "0 auto",
+      "width": "100%",
+    }
+  }
+>
+  <Row
+    gutter={0}
+    justify="center"
+    type="flex"
+  >
+    <Col
+      lg={8}
+      xs={24}
+    >
+      <div
+        style={
+          Object {
+            "color": "#fff",
+            "padding": "16px",
+          }
+        }
+      >
+        <h2
+          style={
+            Object {
+              "color": "#fff",
+            }
+          }
+        >
+          name
+        </h2>
+        <p>
+          <i>
+             Posted by 
+            user
+             | 
+            2018-01-30
+          </i>
+        </p>
+        <p>
+          deck
+        </p>
+      </div>
+    </Col>
+    <Col
+      lg={16}
+      xs={24}
+    >
+      <div
+        className="intrinsic-container intrinsic-container-16x9"
+      >
+        <iframe
+          allowFullScreen={true}
+          frameBorder={0}
+          src="embed_player"
+          title="name"
+        />
+      </div>
+    </Col>
+  </Row>
+</div>
+`;

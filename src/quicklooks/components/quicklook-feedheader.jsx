@@ -6,7 +6,7 @@ import FeedHeader from '../../components/feed-header';
 import { fetchQuicklookSearchVideos, setQuicklookVideo } from '../actions/index';
 import QlSearchResultsSelector from '../selectors/current-ql-search-results';
 
-const QuicklookFeedHeader = props => (
+export const QuicklookFeedHeader = props => (
   <FeedHeader
     category="Quicklook"
     placeholder="Search for Quick Look videos..."

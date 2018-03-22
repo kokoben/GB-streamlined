@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import CurrentVideo from '../../components/current-video';
 import { setLatestHomeVideo } from '../actions';
 
-class CurrentHomeVideo extends Component {
+export class CurrentHomeVideo extends Component {
   componentDidMount() {
     this.props.setLatestHomeVideo();
   }

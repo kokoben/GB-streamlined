@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Adapter
+  style={
+    Object {
+      "color": "#fff",
+      "textAlign": "center",
+    }
+  }
+>
+  Giant Bomb Streamlined Created by Ben Lee
+</Adapter>
+`;
