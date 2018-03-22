@@ -10,3 +10,7 @@ export const setSearchPage = page => ({
   page,
 });
 
+export const setSearchMarker = marker => ({
+  type: sharedActions.SEARCH_MARKER_SET,
+  marker,
+});

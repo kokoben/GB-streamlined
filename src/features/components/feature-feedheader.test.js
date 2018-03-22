@@ -10,8 +10,8 @@ describe('feature-feedheader tests', () => {
     const mockSetVideo = jest.fn();
 
     const wrapper = shallow(<FeatureFeedHeader
+      featureSearchResults={[]}
       currentFeatureSearchResults={[]}
-      currentResults={[]}
       fetchFeatureSearchVideos={mockFetchFeatureSearchVideos}
       setFeatureVideo={mockSetFeatureVideo}
       setVideo={mockSetVideo}

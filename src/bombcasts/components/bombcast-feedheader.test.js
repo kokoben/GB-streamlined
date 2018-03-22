@@ -10,8 +10,8 @@ describe('bombcast-feedheader tests', () => {
     const mockSetVideo = jest.fn();
 
     const wrapper = shallow(<BombcastFeedHeader
+      bombcastSearchResults={[]}
       currentBombcastSearchResults={[]}
-      currentResults={[]}
       fetchBombcastSearchVideos={mockFetchBombcastSearchVideos}
       setBombcastVideo={mockSetBombcastVideo}
       setVideo={mockSetVideo}

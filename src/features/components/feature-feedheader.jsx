@@ -11,6 +11,7 @@ export const FeatureFeedHeader = props => (
     category="Feature"
     placeholder="Search for Feature videos..."
     fetchVideos={props.fetchFeatureSearchVideos}
+    results={props.featureSearchResults}
     currentResults={props.currentFeatureSearchResults}
     setVideo={props.setFeatureVideo}
   />
@@ -19,12 +20,14 @@ export const FeatureFeedHeader = props => (
 /* eslint-disable react/forbid-prop-types */
 FeatureFeedHeader.propTypes = {
   fetchFeatureSearchVideos: PropTypes.func.isRequired,
+  featureSearchResults: PropTypes.array.isRequired,
   currentFeatureSearchResults: PropTypes.array.isRequired,
   setFeatureVideo: PropTypes.func.isRequired,
 };
 /* eslint-enable */
 
 const mapStateToProps = state => ({
+  featureSearchResults: state.features.featureSearchResults,
   currentFeatureSearchResults: FeatureSearchResultsSelector(state),
 });
 

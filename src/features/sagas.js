@@ -76,6 +76,13 @@ function* fetchFeatureSearchVideosAsync(action) {
       page: 1,
     });
 
+    // set the search marker
+    if (results.length >= 8) {
+      yield put({ type: sharedActions.SEARCH_MARKER_SET, marker: 8 });
+    } else {
+      yield put({ type: sharedActions.SEARCH_MARKER_SET, marker: results.length });
+    }
+
     // turn off the loading spinner
     yield put({ type: sharedActions.SEARCH_SPINNER_SET, on: false });
   } catch (e) {

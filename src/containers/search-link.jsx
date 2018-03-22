@@ -1,21 +1,25 @@
 import React from 'react';
 import { Icon } from 'antd';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { setSearchPage, setSearchMarker } from '../actions/index';
 
-const SearchLink = props => (
+export const SearchLink = props => (
   props.navDirection === 'previous' ? (
     <div
       role="button"
       tabIndex={0}
       onClick={(e) => {
         e.stopPropagation();
-        props.navLink(props.currentSearchPage - 1);
+        props.setSearchPage(props.currentSearchPage - 1);
+        props.setSearchMarker(props.searchResultMarker - 8);
       }}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
           e.stopPropagation();
-          props.navLink(props.currentSearchPage - 1);
+          props.setSearchPage(props.currentSearchPage - 1);
+          props.setSearchMarker(props.searchResultMarker - 8);
         }
       }}
     >
@@ -30,12 +34,14 @@ const SearchLink = props => (
       tabIndex={0}
       onClick={(e) => {
         e.stopPropagation();
-        props.navLink(props.currentSearchPage + 1);
+        props.setSearchPage(props.currentSearchPage + 1);
+        props.setSearchMarker(props.searchResultMarker + 8);
       }}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
           e.stopPropagation();
-          props.navLink(props.currentSearchPage + 1);
+          props.setSearchPage(props.currentSearchPage + 1);
+          props.setSearchMarker(props.searchResultMarker + 8);
         }
       }}
     >
@@ -49,12 +55,22 @@ const SearchLink = props => (
 
 SearchLink.propTypes = {
   currentSearchPage: PropTypes.number.isRequired,
+  searchResultMarker: PropTypes.number.isRequired,
   navDirection: PropTypes.string.isRequired,
-  navLink: PropTypes.func.isRequired,
+  setSearchPage: PropTypes.func.isRequired,
+  setSearchMarker: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   currentSearchPage: state.shared.currentSearchPage,
+  searchResultMarker: state.shared.searchResultMarker,
 });
 
-export default connect(mapStateToProps, null)(SearchLink);
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    setSearchPage,
+    setSearchMarker,
+  }, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchLink);

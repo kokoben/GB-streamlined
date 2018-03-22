@@ -11,6 +11,7 @@ export const BombcastFeedHeader = props => (
     category="Bombcast"
     placeholder="Search for Bombcast videos..."
     fetchVideos={props.fetchBombcastSearchVideos}
+    results={props.bombcastSearchResults}
     currentResults={props.currentBombcastSearchResults}
     setVideo={props.setBombcastVideo}
   />
@@ -18,6 +19,7 @@ export const BombcastFeedHeader = props => (
 
 /* eslint-disable react/forbid-prop-types */
 BombcastFeedHeader.propTypes = {
+  bombcastSearchResults: PropTypes.array.isRequired,
   fetchBombcastSearchVideos: PropTypes.func.isRequired,
   currentBombcastSearchResults: PropTypes.array.isRequired,
   setBombcastVideo: PropTypes.func.isRequired,
@@ -25,6 +27,7 @@ BombcastFeedHeader.propTypes = {
 /* eslint-enable */
 
 const mapStateToProps = state => ({
+  bombcastSearchResults: state.bombcasts.bombcastSearchResults,
   currentBombcastSearchResults: BombcastSearchResultsSelector(state),
 });
 

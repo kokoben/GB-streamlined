@@ -21,7 +21,11 @@ describe("search bar tests", () => {
       setSearchSpinner={mockSetSearchSpinner}
       setSearchPage={mockSetSearchPage}
       placeholder="placeholder"
+      results={[]}
       currentResults={[]}
+      searchSpinnerOn={false}
+      searchResultMarker={8}
+      currentSearchPage={1}
     />);
   });
 

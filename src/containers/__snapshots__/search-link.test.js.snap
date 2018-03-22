@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    style={
+      Object {
+        "paddingRight": "5px",
+      }
+    }
+  >
+    See more results
+  </span>
+  <Icon
+    type="down-square-o"
+  />
+</div>
+`;

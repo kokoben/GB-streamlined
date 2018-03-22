@@ -28,8 +28,18 @@ export const searchSpinnerOn = (state = false, action) => {
   }
 };
 
+export const searchResultMarker = (state = null, action) => {
+  switch (action.type) {
+    case sharedActions.SEARCH_MARKER_SET:
+      return action.marker;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   currentSearchPage,
   searchSpinnerOn,
+  searchResultMarker,
 });
 /* eslint-enable */

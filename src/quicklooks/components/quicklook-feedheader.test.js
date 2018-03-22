@@ -10,8 +10,8 @@ describe('quicklook-feedheader tests', () => {
     const mockSetVideo = jest.fn();
 
     const wrapper = shallow(<QuicklookFeedHeader
+      quicklookSearchResults={[]}
       currentQlSearchResults={[]}
-      currentResults={[]}
       fetchQuicklookSearchVideos={mockFetchQuicklookSearchVideos}
       setQuicklookVideo={mockSetQuicklookVideo}
       setVideo={mockSetVideo}

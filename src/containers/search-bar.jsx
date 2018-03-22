@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Select, Spin } from 'antd';
 import debounce from 'lodash.debounce';
-import SearchLink from '../components/search-link';
-import { setSearchSpinner, setSearchPage } from '../actions/index';
+import SearchLinkConnected from '../containers/search-link';
+import { setSearchSpinner } from '../actions/index';
 
 // eslint-disable-next-line prefer-destructuring
 const Option = Select.Option;
@@ -84,29 +84,31 @@ export class SearchBar extends Component {
 
     const prev = (
       <Option key="previous">
-        <SearchLink
+        <SearchLinkConnected
           currentSearchPage={this.props.currentSearchPage}
           navDirection="previous"
-          navLink={this.props.setSearchPage}
         />
       </Option>
     );
 
     const next = (
       <Option key="next">
-        <SearchLink
+        <SearchLinkConnected
           currentSearchPage={this.props.currentSearchPage}
           navDirection="next"
-          navLink={this.props.setSearchPage}
         />
       </Option>
     );
 
-    if (this.props.currentSearchPage !== 1 && this.props.currentSearchPage !== null) {
+    // if not on the first page, have a "previous" link up top
+    if (this.props.currentSearchPage !== null && this.props.searchResultMarker > 8) {
       results = [prev, ...results];
     }
 
-    if (this.props.currentResults.length >= 8) {
+    // if there are more results, have a "next" link at the bottom
+    if (this.props.currentSearchPage !== null &&
+        this.props.searchResultMarker < this.props.results.length
+    ) {
       results = [...results, next];
     }
 
@@ -119,7 +121,10 @@ export class SearchBar extends Component {
         defaultActiveFirstOption={false}
         filterOption={false}
         notFoundContent={
-          this.props.searchSpinnerOn ? <Spin size="small" /> : null
+          this.props.searchSpinnerOn ?
+            <div style={{ paddingTop: '10px', paddingbottom: '10px', textAlign: 'center' }}>
+              <Spin />
+            </div> : null
         }
         onChange={this.handleChange}
         onSearch={this.handleSearch}
@@ -132,25 +137,27 @@ export class SearchBar extends Component {
 
 /* eslint-disable react/forbid-prop-types */
 SearchBar.propTypes = {
+  results: PropTypes.array.isRequired,
   placeholder: PropTypes.string.isRequired,
   fetchVideos: PropTypes.func.isRequired,
   setVideo: PropTypes.func.isRequired,
   currentResults: PropTypes.array.isRequired,
   setSearchSpinner: PropTypes.func.isRequired,
-  currentSearchPage: PropTypes.number,
-  setSearchPage: PropTypes.func.isRequired,
+  currentSearchPage: PropTypes.number.isRequired,
+  searchSpinnerOn: PropTypes.bool.isRequired,
+  searchResultMarker: PropTypes.number.isRequired,
 };
 /* eslint-enable */
 
 const mapStateToProps = state => ({
   currentSearchPage: state.shared.currentSearchPage,
+  searchResultMarker: state.shared.searchResultMarker,
   searchSpinnerOn: state.shared.searchSpinnerOn,
 });
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
     setSearchSpinner,
-    setSearchPage,
   }, dispatch)
 );
 

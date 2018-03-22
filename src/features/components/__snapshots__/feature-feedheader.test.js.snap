@@ -6,6 +6,7 @@ exports[`feature-feedheader tests renders correctly 1`] = `
   currentResults={Array []}
   fetchVideos={[Function]}
   placeholder="Search for Feature videos..."
+  results={Array []}
   setVideo={[Function]}
 />
 `;

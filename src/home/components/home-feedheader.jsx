@@ -19,8 +19,9 @@ export const HomeFeedHeader = props => (
 
 /* eslint-disable react/forbid-prop-types */
 HomeFeedHeader.propTypes = {
-  fetchHomeSearchVideos: PropTypes.func.isRequired,
+  homeSearchResults: PropTypes.array.isRequired,
   currentHomeSearchResults: PropTypes.array.isRequired,
+  fetchHomeSearchVideos: PropTypes.func.isRequired,
   setHomeVideo: PropTypes.func.isRequired,
 };
 /* eslint-enable */

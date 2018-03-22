@@ -21,6 +21,7 @@ const FeedHeader = props => (
       <Col md={{ span: 8, offset: 8 }}>
         <SearchBar
           placeholder={props.placeholder}
+          results={props.results}
           fetchVideos={props.fetchVideos}
           currentResults={props.currentResults}
           setVideo={props.setVideo}

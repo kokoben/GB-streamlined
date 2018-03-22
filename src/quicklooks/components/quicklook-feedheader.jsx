@@ -11,6 +11,7 @@ export const QuicklookFeedHeader = props => (
     category="Quicklook"
     placeholder="Search for Quick Look videos..."
     fetchVideos={props.fetchQuicklookSearchVideos}
+    results={props.quicklookSearchResults}
     currentResults={props.currentQlSearchResults}
     setVideo={props.setQuicklookVideo}
   />
@@ -19,12 +20,14 @@ export const QuicklookFeedHeader = props => (
 /* eslint-disable react/forbid-prop-types */
 QuicklookFeedHeader.propTypes = {
   fetchQuicklookSearchVideos: PropTypes.func.isRequired,
+  quicklookSearchResults: PropTypes.array.isRequired,
   currentQlSearchResults: PropTypes.array.isRequired,
   setQuicklookVideo: PropTypes.func.isRequired,
 };
 /* eslint-enable */
 
 const mapStateToProps = state => ({
+  quicklookSearchResults: state.quicklooks.quicklookSearchResults,
   currentQlSearchResults: QlSearchResultsSelector(state),
 });
 
