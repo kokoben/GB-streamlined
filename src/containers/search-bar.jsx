@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import { Select } from 'antd';
+import { Select, Spin } from 'antd';
 import debounce from 'lodash.debounce';
 import SearchLink from '../components/search-link';
 import { setSearchSpinner, setSearchPage } from '../actions/index';
@@ -27,10 +27,10 @@ export class SearchBar extends Component {
     this.setState({
       value,
     });
-    this.props.setSearchSpinner(true);
   }
 
   handleSearch(value) {
+    this.props.setSearchSpinner(true);
     this.props.fetchVideos(value);
   }
 
@@ -119,7 +119,7 @@ export class SearchBar extends Component {
         defaultActiveFirstOption={false}
         filterOption={false}
         notFoundContent={
-          this.state.value !== '' ? 'we got nothin\' for you bruh' : null
+          this.props.searchSpinnerOn ? <Spin size="small" /> : null
         }
         onChange={this.handleChange}
         onSearch={this.handleSearch}

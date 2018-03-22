@@ -11,6 +11,7 @@ export const HomeFeedHeader = props => (
     category=""
     placeholder="Search for videos..."
     fetchVideos={props.fetchHomeSearchVideos}
+    results={props.homeSearchResults}
     currentResults={props.currentHomeSearchResults}
     setVideo={props.setHomeVideo}
   />
@@ -25,6 +26,7 @@ HomeFeedHeader.propTypes = {
 /* eslint-enable */
 
 const mapStateToProps = state => ({
+  homeSearchResults: state.home.homeSearchResults,
   currentHomeSearchResults: HomeSearchResultsSelector(state),
 });
 

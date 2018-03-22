@@ -82,6 +82,7 @@ function* fetchHomeSearchVideosAsync(action) {
       page: 1,
     });
 
+    // turn off the loading spinner
     yield put({ type: sharedActions.SEARCH_SPINNER_SET, on: false });
   } catch (e) {
     yield put({ type: hActions.HOME_SEARCH_FETCH_FAIL, message: e.message });
