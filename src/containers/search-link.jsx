@@ -54,7 +54,7 @@ export const SearchLink = props => (
 );
 
 SearchLink.propTypes = {
-  currentSearchPage: PropTypes.number.isRequired,
+  currentSearchPage: PropTypes.number,
   searchResultMarker: PropTypes.number.isRequired,
   navDirection: PropTypes.string.isRequired,
   setSearchPage: PropTypes.func.isRequired,

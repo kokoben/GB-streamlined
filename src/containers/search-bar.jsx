@@ -108,6 +108,23 @@ export class SearchBar extends Component {
       results = [prev, ...results];
     }
 
+    // display back the keyword being searched
+    if (this.props.currentSearchPage !== null && this.state.value !== '') {
+      const searchDisplay = (
+        <Option
+          style={{
+            color: '#C1C3D7', borderBottomWidth: '1px', borderBottomStyle: 'solid', borderBottomColor: 'gray',
+          }}
+          key="search-term"
+        >
+          <div onClick={e => e.stopPropagation()}>
+            Search for &quot;{this.state.value}&quot;
+          </div>
+        </Option>
+      );
+      results = [searchDisplay, ...results];
+    }
+
     // if there are more results, have a "next" link at the bottom
     if (this.props.currentSearchPage !== null &&
         this.props.searchResultMarker < this.props.results.length
@@ -115,8 +132,16 @@ export class SearchBar extends Component {
       results = [...results, next];
     }
 
-    if (this.props.currentSearchPage !== null && results.length === 0 && this.state.value !== '') {
-      results = [<Option style={{ color: '#C1C3D7' }}key="no-match">We got nothin&apos; for you bruh</Option>];
+    // if no results found
+    if (this.props.currentSearchPage !== null && results.length === 1 && this.state.value !== '') {
+      const noResultsDisplay = (
+        <Option key="no-match">
+          <div onClick={e => e.stopPropagation()}>
+            We got nothin&apos; for you bruh
+          </div>
+        </Option>
+      );
+      results = [...results, noResultsDisplay];
     }
 
     return (
@@ -152,7 +177,7 @@ SearchBar.propTypes = {
   currentResults: PropTypes.array.isRequired,
   setSearchPage: PropTypes.func.isRequired,
   setSearchSpinner: PropTypes.func.isRequired,
-  currentSearchPage: PropTypes.number.isRequired,
+  currentSearchPage: PropTypes.number,
   searchSpinnerOn: PropTypes.bool.isRequired,
   searchResultMarker: PropTypes.number.isRequired,
 };
