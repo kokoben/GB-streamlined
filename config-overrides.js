@@ -9,6 +9,7 @@ module.exports = function override(config, env) {
       '@layout-header-background': '#282B2D',
       '@layout-body-background': '#000',
       '@layout-header-padding': '0',
+      '@menu-dark-item-selected-bg': '#B21818',
     },
 })(config, env);
   return config;

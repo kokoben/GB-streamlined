@@ -38,7 +38,9 @@ export class SearchBar extends Component {
     let results = this.props.currentResults.map(result => (
       <Option
         key={result.name}
-        style={{ lineHeight: '22px' }}
+        style={{
+          borderBottomWidth: '1px', borderBottomStyle: 'solid', borderBottomColor: 'gray', lineHeight: '22px',
+        }}
         tabIndex="0"
       >
         <div
@@ -75,15 +77,15 @@ export class SearchBar extends Component {
               marginLeft: '5px',
             }}
           >
-            <div>{result.name}</div>
-            <div>Video published {result.publish_date}</div>
+            <div><b>{result.name}</b></div>
+            <div style={{ color: 'gray' }}>Video published {result.publish_date}</div>
           </div>
         </div>
       </Option>
     ));
 
     const prev = (
-      <Option key="previous">
+      <Option style={{ borderBottomWidth: '1px', borderBottomStyle: 'solid', borderBottomColor: 'gray' }} key="previous">
         <SearchLinkConnected
           currentSearchPage={this.props.currentSearchPage}
           navDirection="previous"
@@ -110,6 +112,11 @@ export class SearchBar extends Component {
         this.props.searchResultMarker < this.props.results.length
     ) {
       results = [...results, next];
+    }
+
+    if (this.props.currentSearchPage !== null && results.length === 0 && this.state.value !== '') {
+      console.log('poop empty');
+      results = [<Option style={{ color: '#C1C3D7' }}key="no-match">We got nothin&apos; for you bruh</Option>];
     }
 
     return (
