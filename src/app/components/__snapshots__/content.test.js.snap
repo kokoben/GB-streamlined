@@ -12,23 +12,28 @@ exports[`renders correctly 1`] = `
   }
 >
   <main>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/"
-    />
-    <Route
-      component={[Function]}
-      path="/quicklooks"
-    />
-    <Route
-      component={[Function]}
-      path="/features"
-    />
-    <Route
-      component={[Function]}
-      path="/bombcasts"
-    />
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/quicklooks/"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/features"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/bombcasts"
+      />
+    </Switch>
   </main>
 </Adapter>
 `;

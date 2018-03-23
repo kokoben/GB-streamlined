@@ -9,7 +9,15 @@ const NotFound = () => (
       margin: '0 auto',
     }}
   >
-    <h1 style={{ fontSize: '48px', color: '#fff', marginTop: '50px' }}>404: Not Found</h1>
+    <h1
+      style={{
+        fontSize: '48px',
+        color: '#fff',
+        marginTop: '50px',
+      }}
+    >
+      404: Not Found
+    </h1>
     <p style={{ fontSize: '32px' }}> You have arrived at a page that does not exist.
         That&apos;s a real bummer, as we here at GB-Streamlined
         prefer pages that not only exist, but also provide rich,

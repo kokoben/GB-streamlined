@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Select, Spin } from 'antd';
 import debounce from 'lodash.debounce';
 import SearchLinkConnected from '../containers/search-link';
-import { setSearchSpinner } from '../actions/index';
+import { setSearchPage, setSearchSpinner } from '../actions/index';
 
 // eslint-disable-next-line prefer-destructuring
 const Option = Select.Option;
@@ -27,6 +27,7 @@ export class SearchBar extends Component {
     this.setState({
       value,
     });
+    this.props.setSearchPage(null);
   }
 
   handleSearch(value) {
@@ -115,7 +116,6 @@ export class SearchBar extends Component {
     }
 
     if (this.props.currentSearchPage !== null && results.length === 0 && this.state.value !== '') {
-      console.log('poop empty');
       results = [<Option style={{ color: '#C1C3D7' }}key="no-match">We got nothin&apos; for you bruh</Option>];
     }
 
@@ -150,6 +150,7 @@ SearchBar.propTypes = {
   fetchVideos: PropTypes.func.isRequired,
   setVideo: PropTypes.func.isRequired,
   currentResults: PropTypes.array.isRequired,
+  setSearchPage: PropTypes.func.isRequired,
   setSearchSpinner: PropTypes.func.isRequired,
   currentSearchPage: PropTypes.number.isRequired,
   searchSpinnerOn: PropTypes.bool.isRequired,
@@ -165,6 +166,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
+    setSearchPage,
     setSearchSpinner,
   }, dispatch)
 );
