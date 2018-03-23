@@ -1,8 +1,9 @@
 import React from 'react';
 import { Layout } from 'antd';
-import Header from '../components/header';
-import Content from '../components/content';
-import Footer from '../components/footer';
+import Header from './header';
+import Content from './content';
+import Footer from './footer';
+import NotFound from './not-found';
 
 const App = () => (
   <div>

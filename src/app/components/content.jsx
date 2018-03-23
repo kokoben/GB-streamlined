@@ -1,10 +1,11 @@
 import React from 'react';
 import { Layout } from 'antd';
-import { Route } from 'react-router-dom';
-import Home from '../../home/containers/home';
-import Quicklooks from '../../quicklooks/containers/quicklooks';
-import Bombcasts from '../../bombcasts/containers/bombcasts';
-import Features from '../../features/containers/features';
+import { Switch, Route } from 'react-router-dom';
+import HomeConnected from '../../home/containers/home';
+import QuicklooksConnected from '../../quicklooks/containers/quicklooks';
+import BombcastsConnected from '../../bombcasts/containers/bombcasts';
+import FeaturesConnected from '../../features/containers/features';
+import NotFound from './not-found';
 
 const Content = () => (
   <Layout.Content
@@ -16,10 +17,12 @@ const Content = () => (
     }}
   >
     <main>
-      <Route exact path="/" component={Home} />
-      <Route path="/quicklooks" component={Quicklooks} />
-      <Route path="/features" component={Features} />
-      <Route path="/bombcasts" component={Bombcasts} />
+      <Switch>
+        <Route exact path="/" component={HomeConnected} />
+        <Route exact path="/quicklooks/" component={QuicklooksConnected} />
+        <Route exact path="/features" component={FeaturesConnected} />
+        <Route exact path="/bombcasts" component={BombcastsConnected} />
+      </Switch>
     </main>
   </Layout.Content>
 );
