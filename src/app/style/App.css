@@ -107,6 +107,9 @@
   .feed-header {
     text-align: center;
   }
+  .search-bar {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {

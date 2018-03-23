@@ -121,6 +121,7 @@ export class SearchBar extends Component {
 
     return (
       <Select
+        className="search-bar"
         mode="combobox"
         value={this.state.value}
         style={{ width: '100%', padding: '0 10px' }}
