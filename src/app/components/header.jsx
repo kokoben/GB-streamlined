@@ -93,8 +93,17 @@ class Burger extends Component {
   /* eslint-enable */
 }
 const BurgerMenu = () => (
-  <Layout.Header className="menu-mini-header">
-    <Layout.Header className="menu-mini" style={{ margin: '0 auto' }}>
+  <Layout.Header
+    className="menu-mini-header"
+  >
+    <Layout.Header
+      className="menu-mini"
+      style={{
+        borderBottomWidtdh: '2px',
+        borderBottomColor: '#981616',
+        borderBottomStyle: 'solid',
+      }}
+    >
       <Burger />
       <img src={Logo} alt="GB-Streamlined" className="logo-right" />
     </Layout.Header>

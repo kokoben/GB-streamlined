@@ -5,7 +5,6 @@ import HomeConnected from '../../home/containers/home';
 import QuicklooksConnected from '../../quicklooks/containers/quicklooks';
 import BombcastsConnected from '../../bombcasts/containers/bombcasts';
 import FeaturesConnected from '../../features/containers/features';
-import NotFound from './not-found';
 
 const Content = () => (
   <Layout.Content

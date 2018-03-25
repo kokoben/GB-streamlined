@@ -12,7 +12,8 @@
 
 .logo-right {
   height: 62px;
-  float: right;
+  display: block;
+  margin: 0 auto;
   padding-left: 25px;
   padding-right: 25px;
 }
@@ -45,7 +46,7 @@
   width: 36px;
   height: 30px;
   left: 15px;
-  top: 20px;
+  top: 15px;
 }
 
 /* Color/shape of burger icon bars */
