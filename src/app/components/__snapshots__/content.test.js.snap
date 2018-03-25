@@ -6,6 +6,9 @@ exports[`renders correctly 1`] = `
   style={
     Object {
       "background": "#fff",
+      "borderBottomColor": "#981616",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": "2px",
       "margin": "0 auto 50px",
       "padding": "10px 10px",
     }

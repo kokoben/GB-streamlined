@@ -5,6 +5,8 @@ exports[`renders correctly 1`] = `
   style={
     Object {
       "color": "#fff",
+      "marginBottom": "45px",
+      "padding": "0",
       "textAlign": "center",
     }
   }

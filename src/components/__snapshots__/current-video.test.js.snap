@@ -59,6 +59,7 @@ exports[`renders without crashing 1`] = `
         <iframe
           allowFullScreen={true}
           frameBorder={0}
+          name="name"
           src="embed_player"
           title="name"
         />

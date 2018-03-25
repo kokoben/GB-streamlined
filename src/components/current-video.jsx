@@ -22,6 +22,7 @@ const CurrentVideo = (props) => {
               frameBorder={0}
               allowFullScreen
               title={props.name}
+              name={props.name}
               src={props.embed_player}
             />
           </div>

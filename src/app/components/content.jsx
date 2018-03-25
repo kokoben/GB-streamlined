@@ -13,6 +13,9 @@ const Content = () => (
       background: '#fff',
       padding: '10px 10px',
       margin: '0 auto 50px',
+      borderBottomWidth: '2px',
+      borderBottomColor: '#981616',
+      borderBottomStyle: 'solid',
     }}
   >
     <main>
