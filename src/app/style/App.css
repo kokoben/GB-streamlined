@@ -88,6 +88,18 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
+@media (max-width: 575px) {
+  .cards-full {
+    display: none;
+  }
+}
+
+@media (min-width: 576px && max-width: 767px) {
+  .cards-mini {
+    display: none;
+  }
+}
+
 @media (max-width: 767px) {
   .content, .menu-mini {
     width: 100%;
@@ -113,6 +125,9 @@
   .feed-header {
     padding-left: 25px;
   }
+  .cards-mini {
+    display: none;
+  }
 }
 
 @media (min-width: 992px) {
@@ -125,6 +140,9 @@
   .feed-header {
     padding-left: 25px;
   }
+  .cards-mini {
+    display: none;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -136,6 +154,9 @@
   }
   .feed-header {
     padding-left: 25px;
+  }
+  .cards-mini {
+    display: none;
   }
 }
 

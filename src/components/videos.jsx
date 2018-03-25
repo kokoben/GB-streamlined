@@ -5,9 +5,9 @@ import Moment from 'moment';
 
 const { Meta } = Card;
 
-const VideosRow = props => (
+const VideosRowFull = props => (
   props.results.map(video => (
-    <Col key={video.id} xs={24} sm={12} md={6} lg={6} xl={6}>
+    <Col className="cards-full" key={video.id} xs={24} sm={12} md={6} lg={6} xl={6}>
       <div style={{ margin: 16 }}>
         <Card
           onClick={() => props.onCardClick(video.id)}
@@ -33,10 +33,42 @@ const VideosRow = props => (
   ))
 );
 
+const VideosRowMini = props => (
+  props.results.map(video => (
+    <Col className="cards-mini" key={video.id} xs={24} sm={12} md={6} lg={6} xl={6}>
+      <div style={{ margin: 16 }}>
+        <Card
+          onClick={() => props.onCardClick(video.id)}
+          hoverable
+          cover={<img alt={video.image.name} src={video.image.super_url} />}
+        >
+          <Meta
+            title={video.name}
+            description={
+              <div>
+                <p>
+                  Posted by {video.user} |
+                  &thinsp;{Moment(video.publish_date).format('MMM. D, YYYY h:mma')}
+                </p>
+                <p>{video.deck}</p>
+              </div>
+            }
+          />
+        </Card>
+      </div>
+    </Col>
+  ))
+);
+
 const Videos = props => (
   <div>
     <Row type="flex" justify="left" style={{ width: '100%', margin: '0 auto' }}>
-      <VideosRow
+      <VideosRowFull
+        onCardClick={props.onCardClick}
+        results={props.results}
+        span={24}
+      />
+      <VideosRowMini
         onCardClick={props.onCardClick}
         results={props.results}
         span={24}
@@ -53,7 +85,12 @@ const Videos = props => (
 );
 
 /* eslint-disable react/forbid-prop-types */
-VideosRow.propTypes = {
+VideosRowFull.propTypes = {
+  span: PropTypes.number.isRequired,
+  results: PropTypes.array.isRequired,
+};
+
+VideosRowMini.propTypes = {
   span: PropTypes.number.isRequired,
   results: PropTypes.array.isRequired,
 };
