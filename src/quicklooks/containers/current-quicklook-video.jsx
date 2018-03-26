@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setLatestQuicklookVideo } from '../actions';
-import CurrentVideo from '../../components/current-video';
+import CurrentVideo from '../../containers/current-video';
 
 export class CurrentQuicklookVideo extends Component {
   componentDidMount() {

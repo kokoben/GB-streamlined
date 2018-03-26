@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import CurrentVideo from '../../components/current-video';
+import CurrentVideo from '../../containers/current-video';
 import { setLatestBombcastVideo } from '../actions';
 
 export class CurrentBombcastVideo extends Component {
