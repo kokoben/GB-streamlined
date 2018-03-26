@@ -7,7 +7,7 @@ const Footer = () => (
       color: '#fff',
       textAlign: 'center',
       padding: '0',
-      marginBottom: '45px'
+      marginBottom: '45px',
     }}
   >
     Giant Bomb Streamlined Created by Ben Lee
