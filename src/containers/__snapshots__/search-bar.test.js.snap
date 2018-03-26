@@ -1,25 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`search bar tests renders correctly 1`] = `
-<Select
-  choiceTransitionName="zoom"
-  className="search-bar"
-  defaultActiveFirstOption={false}
-  filterOption={false}
-  mode="combobox"
-  notFoundContent={null}
-  onChange={[Function]}
-  onSearch={[Function]}
-  placeholder="placeholder"
-  prefixCls="ant-select"
-  showSearch={false}
+<div
   style={
     Object {
-      "padding": "0 10px",
-      "width": "100%",
+      "position": "relative",
     }
   }
-  transitionName="slide-up"
-  value=""
-/>
+>
+  <span
+    style={
+      Object {
+        "fontWeight": "900",
+        "left": "20px",
+        "position": "absolute",
+        "zIndex": "1",
+      }
+    }
+  >
+    <Icon
+      style={
+        Object {
+          "color": "gray",
+        }
+      }
+      type="search"
+    />
+  </span>
+  <Select
+    choiceTransitionName="zoom"
+    className="search-bar"
+    defaultActiveFirstOption={false}
+    filterOption={false}
+    mode="combobox"
+    notFoundContent={null}
+    onChange={[Function]}
+    onSearch={[Function]}
+    placeholder="placeholder"
+    prefixCls="ant-select"
+    showSearch={false}
+    style={
+      Object {
+        "padding": "0 10px",
+        "width": "100%",
+      }
+    }
+    transitionName="slide-up"
+    value=""
+  />
+</div>
 `;

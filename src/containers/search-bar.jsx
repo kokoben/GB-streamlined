@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import { Select, Spin } from 'antd';
+import { Select, Spin, Icon } from 'antd';
 import debounce from 'lodash.debounce';
 import SearchLinkConnected from '../containers/search-link';
 import { setSearchPage, setSearchSpinner } from '../actions/index';
@@ -145,25 +145,30 @@ export class SearchBar extends Component {
     }
 
     return (
-      <Select
-        className="search-bar"
-        mode="combobox"
-        value={this.state.value}
-        style={{ width: '100%', padding: '0 10px' }}
-        placeholder={this.props.placeholder}
-        defaultActiveFirstOption={false}
-        filterOption={false}
-        notFoundContent={
-          this.props.searchSpinnerOn ?
-            <div style={{ paddingTop: '10px', paddingbottom: '10px', textAlign: 'center' }}>
-              <Spin />
-            </div> : null
-        }
-        onChange={this.handleChange}
-        onSearch={this.handleSearch}
-      >
-        {results}
-      </Select>
+      <div style={{ position: 'relative' }}>
+        <span style={{ position: 'absolute', left: '20px', zIndex: '1', fontWeight: '900' }}>
+          <Icon type="search" style={{ color: 'gray' }} />
+        </span>
+        <Select
+          className="search-bar"
+          mode="combobox"
+          value={this.state.value}
+          style={{ width: '100%', padding: '0 10px' }}
+          placeholder={this.props.placeholder}
+          defaultActiveFirstOption={false}
+          filterOption={false}
+          notFoundContent={
+            this.props.searchSpinnerOn ?
+              <div style={{ paddingTop: '10px', paddingbottom: '10px', textAlign: 'center' }}>
+                <Spin />
+              </div> : null
+          }
+          onChange={this.handleChange}
+          onSearch={this.handleSearch}
+        >
+          {results}
+        </Select>
+      </div>
     );
   }
 }
@@ -177,7 +182,6 @@ SearchBar.propTypes = {
   currentResults: PropTypes.array.isRequired,
   setSearchPage: PropTypes.func.isRequired,
   setSearchSpinner: PropTypes.func.isRequired,
-  currentSearchPage: PropTypes.number,
   searchSpinnerOn: PropTypes.bool.isRequired,
   searchResultMarker: PropTypes.number.isRequired,
 };

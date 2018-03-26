@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { Select } from 'antd';
-import debounce from 'lodash.debounce';
 import { SearchBar } from './search-bar';
 
 jest.mock('lodash.debounce', () => jest.fn(fn => fn));
@@ -38,7 +37,7 @@ describe("search bar tests", () => {
     const searchVal = 'mario';
     // simulate user typing 'mario' into search bar
     wrapper.find(Select).simulate('change', { value: searchVal });
-    wrapper.prop('onSearch')({ value: searchVal });
+    wrapper.find(Select).prop('onSearch')({ value: searchVal });
     // test to see arguments used after search has been submitted
     expect(mockSetSearchSpinner).toHaveBeenCalledWith(true);
     expect(mockFetchVideos).toHaveBeenCalledWith({ value: searchVal });
