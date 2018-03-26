@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
-import logger from 'redux-logger';
 import createHistory from 'history/createBrowserHistory';
 import rootSaga from './root-saga';
 import rootReducer from './root-reducer';
@@ -10,12 +9,18 @@ export const history = createHistory();
 
 const configureStore = () => {
   const initialState = {};
+
   const sagaMiddleware = createSagaMiddleware();
-  const middleware = [
+  const middlewares = [
     routerMiddleware(history),
     sagaMiddleware,
-    logger,
   ];
+
+  // only use redux-logger in development
+  if (process.env.NODE_ENV === 'development') {
+    const { logger } = require('redux-logger');
+    middlewares.push(logger);
+  }
 
   /* eslint-disable no-underscore-dangle */
   // eslint-disable-next-line no-undef
@@ -23,7 +28,7 @@ const configureStore = () => {
   const store = createStore(
     rootReducer,
     initialState,
-    composeEnhancers(applyMiddleware(...middleware)),
+    composeEnhancers(applyMiddleware(...middlewares)),
   );
   /* eslint-enable */
 
