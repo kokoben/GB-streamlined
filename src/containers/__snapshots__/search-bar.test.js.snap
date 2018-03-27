@@ -9,6 +9,7 @@ exports[`search bar tests renders correctly 1`] = `
   }
 >
   <span
+    className="search-icon"
     style={
       Object {
         "fontWeight": "900",

@@ -146,7 +146,7 @@ export class SearchBar extends Component {
 
     return (
       <div style={{ position: 'relative' }}>
-        <span style={{ position: 'absolute', left: '20px', zIndex: '1', fontWeight: '900' }}>
+        <span className="search-icon" style={{ position: 'absolute', left: '20px', zIndex: '1', fontWeight: '900' }}>
           <Icon type="search" style={{ color: 'gray' }} />
         </span>
         <Select

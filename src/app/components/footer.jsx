@@ -10,7 +10,10 @@ const Footer = () => (
       marginBottom: '45px',
     }}
   >
-    Giant Bomb Streamlined Created by Ben Lee
+    <p style={{ margin: '0 auto' }}>Giant Bomb Streamlined Created by Ben Lee</p>
+    <p style={{ margin: '0 auto' }}>
+      Created using the <a href="https://www.giantbomb.com">Giant Bomb</a> API
+    </p>
   </Layout.Footer>
 );
 

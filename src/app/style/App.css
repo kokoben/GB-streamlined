@@ -113,6 +113,9 @@
   .search-bar {
     display: none;
   }
+  .search-icon {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {
