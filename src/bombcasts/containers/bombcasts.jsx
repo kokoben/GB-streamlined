@@ -8,17 +8,29 @@ import BombcastFeedHeaderConnected from '../components/bombcast-feedheader';
 import { setSearchPage, setSearchMarker } from '../../actions/index';
 
 export class Bombcasts extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickPageScroll = this.onClickPageScroll.bind(this);
+  }
+
   componentDidMount() {
     this.props.setSearchPage(null);
     this.props.setSearchMarker(null);
+  }
+
+  onClickPageScroll() {
+    this.feedHeaderNode.scrollIntoView();
   }
 
   render() {
     return (
       <div>
         <CurrentBombcastVideoConnected />
-        <BombcastFeedHeaderConnected />
-        <BombcastVideosConnected />
+        <div ref={node => this.feedHeaderNode = node}>
+          <BombcastFeedHeaderConnected />
+        </div>
+        <BombcastVideosConnected onClickPageScroll={this.onClickPageScroll} />
       </div>
     );
   }

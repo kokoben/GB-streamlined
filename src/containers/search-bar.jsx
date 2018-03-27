@@ -183,7 +183,8 @@ SearchBar.propTypes = {
   setSearchPage: PropTypes.func.isRequired,
   setSearchSpinner: PropTypes.func.isRequired,
   searchSpinnerOn: PropTypes.bool.isRequired,
-  searchResultMarker: PropTypes.number.isRequired,
+  searchResultMarker: PropTypes.number,
+  currentSearchPage: PropTypes.number,
 };
 /* eslint-enable */
 

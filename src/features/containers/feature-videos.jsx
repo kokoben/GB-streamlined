@@ -6,8 +6,19 @@ import Videos from '../../components/videos';
 import { setFeatureVideo, setFeatureVideos } from '../actions';
 
 export class FeatureVideos extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickActions = this.onClickActions.bind(this);
+  }
+
   componentDidMount() {
     this.props.setFeatureVideos(1, 24);
+  }
+
+  onClickActions(page, pageSize) {
+    this.props.setFeatureVideos(page, pageSize);
+    this.props.onClickPageScroll();
   }
 
   render() {
@@ -18,7 +29,7 @@ export class FeatureVideos extends Component {
         results={this.props.featureVideos.results}
         num_results={this.props.featureVideos.number_of_total_results}
         onCardClick={this.props.setFeatureVideo}
-        onClickPageNum={this.props.setFeatureVideos}
+        onClickPageNum={this.onClickActions}
       />
     );
   }
@@ -28,7 +39,8 @@ export class FeatureVideos extends Component {
 FeatureVideos.propTypes = {
   setFeatureVideo: PropTypes.func.isRequired,
   setFeatureVideos: PropTypes.func.isRequired,
-  featureVideos: PropTypes.object.isRequired,
+  onClickPageScroll: PropTypes.func.isRequired,
+  featureVideos: PropTypes.object,
 };
 /* eslint-enable */
 

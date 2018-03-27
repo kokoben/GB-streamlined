@@ -6,6 +6,7 @@ import { FeatureVideos } from './feature-videos';
 it('renders correctly', () => {
   const mockSetFeatureVideo = jest.fn();
   const mockSetFeatureVideos = jest.fn();
+  const mockOnClickPageScroll = jest.fn();
   const featureVideos = {
     results: [],
     number_of_total_results: 24,
@@ -15,6 +16,7 @@ it('renders correctly', () => {
     featureVideos={featureVideos}
     setFeatureVideo={mockSetFeatureVideo}
     setFeatureVideos={mockSetFeatureVideos}
+    onClickPageScroll={mockOnClickPageScroll}
   />);
 
   const tree = toJson(wrapper);

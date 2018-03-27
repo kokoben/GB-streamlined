@@ -8,17 +8,29 @@ import QuicklookFeedHeaderConnected from '../components/quicklook-feedheader';
 import { setSearchPage, setSearchMarker } from '../../actions/index';
 
 export class Quicklooks extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickPageScroll = this.onClickPageScroll.bind(this);
+  }
+
   componentDidMount() {
     this.props.setSearchPage(null);
     this.props.setSearchMarker(null);
+  }
+
+  onClickPageScroll() {
+    this.feedHeaderNode.scrollIntoView();
   }
 
   render() {
     return (
       <div>
         <CurrentQuicklookVideoConnected />
-        <QuicklookFeedHeaderConnected />
-        <QuicklookVideosConnected />
+        <div ref={node => this.feedHeaderNode = node}>
+          <QuicklookFeedHeaderConnected />
+        </div>
+        <QuicklookVideosConnected onClickPageScroll={this.onClickPageScroll} />
       </div>
     );
   }

@@ -74,7 +74,7 @@ const Videos = props => (
         span={24}
       />
     </Row>
-    <div style={{ float: 'left' }}>
+    <div style={{ float: 'left', paddingLeft: '14px' }}>
       {props.num_results} results
     </div>
     <Pagination

@@ -28,7 +28,7 @@ export class CurrentFeatureVideo extends Component {
 /* eslint-disable react/forbid-prop-types */
 CurrentFeatureVideo.propTypes = {
   setLatestFeatureVideo: PropTypes.func.isRequired,
-  featureVideo: PropTypes.object.isRequired,
+  featureVideo: PropTypes.object,
 };
 /* eslint-enable */
 

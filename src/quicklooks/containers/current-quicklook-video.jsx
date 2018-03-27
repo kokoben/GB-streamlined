@@ -27,7 +27,7 @@ export class CurrentQuicklookVideo extends Component {
 /* eslint-disable react/forbid-prop-types */
 CurrentQuicklookVideo.propTypes = {
   setLatestQuicklookVideo: PropTypes.func.isRequired,
-  quicklookVideo: PropTypes.object.isRequired,
+  quicklookVideo: PropTypes.object,
 };
 /* eslint-enable */
 

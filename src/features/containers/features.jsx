@@ -8,17 +8,29 @@ import FeatureFeedHeaderConnected from '../components/feature-feedheader';
 import { setSearchPage, setSearchMarker } from '../../actions/index';
 
 export class Features extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickPageScroll = this.onClickPageScroll.bind(this);
+  }
+
   componentDidMount() {
     this.props.setSearchPage(null);
     this.props.setSearchMarker(null);
+  }
+
+  onClickPageScroll() {
+    this.feedHeaderNode.scrollIntoView();
   }
 
   render() {
     return (
       <div>
         <CurrentFeatureVideoConnected />
-        <FeatureFeedHeaderConnected />
-        <FeatureVideosConnected />
+        <div ref={node => this.feedHeaderNode = node}>
+          <FeatureFeedHeaderConnected />
+        </div>
+        <FeatureVideosConnected onClickPageScroll={this.onClickPageScroll} />
       </div>
     );
   }

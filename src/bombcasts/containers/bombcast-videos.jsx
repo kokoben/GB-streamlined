@@ -6,8 +6,19 @@ import Videos from '../../components/videos';
 import { setBombcastVideo, setBombcastVideos } from '../actions';
 
 export class BombcastVideos extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickActions = this.onClickActions.bind(this);
+  }
+
   componentDidMount() {
     this.props.setBombcastVideos(1, 24);
+  }
+
+  onClickActions(page, pageSize) {
+    this.props.setBombcastVideos(page, pageSize);
+    this.props.onClickPageScroll();
   }
 
   render() {
@@ -18,7 +29,7 @@ export class BombcastVideos extends Component {
         results={this.props.bombcastVideos.results}
         num_results={this.props.bombcastVideos.number_of_total_results}
         onCardClick={this.props.setBombcastVideo}
-        onClickPageNum={this.props.setBombcastVideos}
+        onClickPageNum={this.onClickActions}
       />
     );
   }
@@ -28,7 +39,8 @@ export class BombcastVideos extends Component {
 BombcastVideos.propTypes = {
   setBombcastVideo: PropTypes.func.isRequired,
   setBombcastVideos: PropTypes.func.isRequired,
-  bombcastVideos: PropTypes.object.isRequired,
+  onClickPageScroll: PropTypes.func.isRequired,
+  bombcastVideos: PropTypes.object,
 };
 /* eslint-enable */
 

@@ -3,7 +3,11 @@
 exports[`renders correctly 1`] = `
 <div>
   <Connect(CurrentHomeVideo) />
-  <Connect(Component) />
-  <Connect(HomeVideos) />
+  <div>
+    <Connect(Component) />
+  </div>
+  <Connect(HomeVideos)
+    onClickPageScroll={[Function]}
+  />
 </div>
 `;

@@ -6,6 +6,7 @@ import { HomeVideos } from './home-videos';
 it('renders correctly', () => {
   const mockSetHomeVideo = jest.fn();
   const mockSetHomeVideos = jest.fn();
+  const mockOnClickPageScroll = jest.fn();
   const homeVideos = {
     results: [],
     number_of_total_results: 24,
@@ -15,6 +16,7 @@ it('renders correctly', () => {
     homeVideos={homeVideos}
     setHomeVideo={mockSetHomeVideo}
     setHomeVideos={mockSetHomeVideos}
+    onClickPageScroll={mockOnClickPageScroll}
   />)
 
   const tree = toJson(wrapper);

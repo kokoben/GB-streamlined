@@ -8,17 +8,29 @@ import HomeFeedHeaderConnected from '../components/home-feedheader';
 import { setSearchPage, setSearchMarker } from '../../actions/index';
 
 export class Home extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickPageScroll = this.onClickPageScroll.bind(this);
+  }
+
   componentDidMount() {
     this.props.setSearchPage(null);
     this.props.setSearchMarker(null);
+  }
+
+  onClickPageScroll() {
+    this.feedHeaderNode.scrollIntoView();
   }
 
   render() {
     return (
       <div>
         <CurrentHomeVideoConnected />
-        <HomeFeedHeaderConnected />
-        <HomeVideosConnected />
+        <div ref={node => this.feedHeaderNode = node}>
+          <HomeFeedHeaderConnected />
+        </div>
+        <HomeVideosConnected onClickPageScroll={this.onClickPageScroll} />
       </div>
     );
   }

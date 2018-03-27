@@ -6,8 +6,19 @@ import Videos from '../../components/videos';
 import { setQuicklookVideo, setQuicklookVideos } from '../actions';
 
 export class QuicklookVideos extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickActions = this.onClickActions.bind(this);
+  }
+
   componentDidMount() {
     this.props.setQuicklookVideos(1, 24);
+  }
+
+  onClickActions(page, pageSize) {
+    this.props.setQuicklookVideos(page, pageSize);
+    this.props.onClickPageScroll();
   }
 
   render() {
@@ -18,7 +29,7 @@ export class QuicklookVideos extends Component {
         results={this.props.quicklookVideos.results}
         num_results={this.props.quicklookVideos.number_of_total_results}
         onCardClick={this.props.setQuicklookVideo}
-        onClickPageNum={this.props.setQuicklookVideos}
+        onClickPageNum={this.onClickActions}
       />
     );
   }
@@ -28,7 +39,8 @@ export class QuicklookVideos extends Component {
 QuicklookVideos.propTypes = {
   setQuicklookVideo: PropTypes.func.isRequired,
   setQuicklookVideos: PropTypes.func.isRequired,
-  quicklookVideos: PropTypes.object.isRequired,
+  onClickPageScroll: PropTypes.func.isRequired,
+  quicklookVideos: PropTypes.object,
 };
 /* eslint-enable */
 

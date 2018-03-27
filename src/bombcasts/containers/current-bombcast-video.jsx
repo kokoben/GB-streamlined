@@ -26,7 +26,7 @@ export class CurrentBombcastVideo extends Component {
 
 CurrentBombcastVideo.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  bombcastVideo: PropTypes.object.isRequired,
+  bombcastVideo: PropTypes.object,
   setLatestBombcastVideo: PropTypes.func.isRequired,
 };
 
