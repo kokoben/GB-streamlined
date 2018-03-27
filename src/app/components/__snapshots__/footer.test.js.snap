@@ -11,6 +11,29 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  Giant Bomb Streamlined Created by Ben Lee
+  <p
+    style={
+      Object {
+        "margin": "0 auto",
+      }
+    }
+  >
+    Giant Bomb Streamlined Created by Ben Lee
+  </p>
+  <p
+    style={
+      Object {
+        "margin": "0 auto",
+      }
+    }
+  >
+    Created using the 
+    <a
+      href="https://www.giantbomb.com"
+    >
+      Giant Bomb
+    </a>
+     API
+  </p>
 </Adapter>
 `;
